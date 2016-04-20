@@ -31,5 +31,6 @@ public class GameActivity extends AppCompatActivity {
             }
         });
 
-    }
+    }//Testowa zmiana
+    //TEST TEST TEST
 }
