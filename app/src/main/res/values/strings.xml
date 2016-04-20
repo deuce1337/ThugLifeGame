@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">ThugLifeGame</string>
+    <string name="user">Użytkownik</string>
+    <string name="energy">Energia:</string>
+    <string name="cash">Kasa:</string>
+    <string name="level">Poziom:</string>
+    <string name="shop">Sklep z bronią</string>
+    <string name="bank">Bank</string>
+    <string name="dealer">Diler</string>
+    <string name="hospital">Szpital</string>
+    <string name="quests">Misje</string>
+    <string name="hookers">Dziwki</string>
+    <string name="casino">Kasyno</string>
+    <string name="prison">Więzienie</string>
+    <string name="vip">VIP</string>
+    <string name="saldo">Saldo:</string>
+</resources>
