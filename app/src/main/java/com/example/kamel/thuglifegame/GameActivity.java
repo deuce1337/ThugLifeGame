@@ -17,6 +17,9 @@ public class GameActivity extends AppCompatActivity {
         final TextView Username = (TextView) findViewById(R.id.tvUsername);
 
         final ImageButton ibBank = (ImageButton) findViewById(R.id.ibBank);
+        final ImageButton ibShop = (ImageButton) findViewById(R.id.ibShop);
+
+
 
         Intent intent = getIntent();
         String username = intent.getStringExtra("username");
@@ -31,6 +34,14 @@ public class GameActivity extends AppCompatActivity {
             }
         });
 
-    }//TESTTEST i chuj aaa
-    //TEST2
+        ibShop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent shopIntent = new Intent(GameActivity.this, ShopActivity.class);
+                GameActivity.this.startActivity(shopIntent);
+            }
+        });
+
+    }
+
 }
