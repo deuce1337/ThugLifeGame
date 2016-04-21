@@ -22,6 +22,9 @@ public class GameActivity extends AppCompatActivity {
         final ImageButton ibDealer = (ImageButton) findViewById(R.id.ibDealer);
         final ImageButton ibHospital = (ImageButton) findViewById(R.id.ibHospital);
         final ImageButton ibQuests = (ImageButton) findViewById(R.id.ibQuests);
+        final ImageButton ibCasino = (ImageButton) findViewById(R.id.ibCasino);
+        final ImageButton ibPrison = (ImageButton) findViewById(R.id.ibPrison);
+        final ImageButton ibVIP = (ImageButton) findViewById(R.id.ibVIP);
 
         Intent intent = getIntent();
         String username = intent.getStringExtra("username");
@@ -74,6 +77,27 @@ public class GameActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent questsIntent = new Intent(GameActivity.this, QuestActivity.class);
                 GameActivity.this.startActivity(questsIntent);
+            }
+        });
+        ibCasino.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent casinoIntent = new Intent(GameActivity.this, CasinoActivity.class);
+                GameActivity.this.startActivity(casinoIntent);
+            }
+        });
+        ibPrison.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent prisonIntent = new Intent(GameActivity.this, PrisonActivity.class);
+                GameActivity.this.startActivity(prisonIntent);
+            }
+        });
+        ibVIP.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent vipIntent = new Intent(GameActivity.this, VIPActivity.class);
+                GameActivity.this.startActivity(vipIntent);
             }
         });
     }
