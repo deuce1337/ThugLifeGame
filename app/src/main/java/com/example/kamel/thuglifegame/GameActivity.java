@@ -19,9 +19,9 @@ public class GameActivity extends AppCompatActivity {
         final ImageButton ibBank = (ImageButton) findViewById(R.id.ibBank);
         final ImageButton ibWhores = (ImageButton) findViewById(R.id.ibWhore);
         final ImageButton ibShop = (ImageButton) findViewById(R.id.ibShop);
-        final ImageButton ibCasino = (ImageButton) findViewById(R.id.ibCasino);
-        final ImageButton ibPrison = (ImageButton) findViewById(R.id.ibPrison);
-        final ImageButton ibVIP = (ImageButton) findViewById(R.id.ibVIP);
+        final ImageButton ibDealer = (ImageButton) findViewById(R.id.ibDealer);
+        final ImageButton ibHospital = (ImageButton) findViewById(R.id.ibHospital);
+        final ImageButton ibQuests = (ImageButton) findViewById(R.id.ibQuests);
 
         Intent intent = getIntent();
         String username = intent.getStringExtra("username");
@@ -35,6 +35,7 @@ public class GameActivity extends AppCompatActivity {
                 GameActivity.this.startActivity(bankIntent);
             }
         });
+
         ibWhores.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -42,6 +43,8 @@ public class GameActivity extends AppCompatActivity {
                 GameActivity.this.startActivity(whoresIntent);
             }
         });
+
+
         ibShop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -49,27 +52,29 @@ public class GameActivity extends AppCompatActivity {
                 GameActivity.this.startActivity(shopIntent);
             }
         });
-        ibCasino.setOnClickListener(new View.OnClickListener() {
+
+        ibDealer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent casinoIntent = new Intent(GameActivity.this, CasinoActivity.class);
-                GameActivity.this.startActivity(casinoIntent);
+                Intent dealerIntent = new Intent(GameActivity.this, DealerActivity.class);
+                GameActivity.this.startActivity(dealerIntent);
             }
         });
-        ibPrison.setOnClickListener(new View.OnClickListener() {
+
+        ibHospital.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent prisonIntent = new Intent(GameActivity.this, PrisonActivity.class);
-                GameActivity.this.startActivity(prisonIntent);
+                Intent hospitalIntent = new Intent(GameActivity.this, HospitalActivity.class);
+                GameActivity.this.startActivity(hospitalIntent);
             }
         });
-        ibVIP.setOnClickListener(new View.OnClickListener() {
+
+        ibQuests.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent vipIntent = new Intent(GameActivity.this, VIPActivity.class);
-                GameActivity.this.startActivity(vipIntent);
+                Intent questsIntent = new Intent(GameActivity.this, QuestActivity.class);
+                GameActivity.this.startActivity(questsIntent);
             }
         });
     }
 }
-
