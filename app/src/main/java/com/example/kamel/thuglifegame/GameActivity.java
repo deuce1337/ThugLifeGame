@@ -19,6 +19,9 @@ public class GameActivity extends AppCompatActivity {
         final ImageButton ibBank = (ImageButton) findViewById(R.id.ibBank);
         final ImageButton ibWhores = (ImageButton) findViewById(R.id.ibWhore);
         final ImageButton ibShop = (ImageButton) findViewById(R.id.ibShop);
+        final ImageButton ibDealer = (ImageButton) findViewById(R.id.ibDealer);
+        final ImageButton ibHospital = (ImageButton) findViewById(R.id.ibHospital);
+        final ImageButton ibQuests = (ImageButton) findViewById(R.id.ibQuests);
 
         Intent intent = getIntent();
         String username = intent.getStringExtra("username");
@@ -32,6 +35,7 @@ public class GameActivity extends AppCompatActivity {
                 GameActivity.this.startActivity(bankIntent);
             }
         });
+
         ibWhores.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -39,6 +43,8 @@ public class GameActivity extends AppCompatActivity {
                 GameActivity.this.startActivity(whoresIntent);
             }
         });
+
+
         ibShop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -46,6 +52,29 @@ public class GameActivity extends AppCompatActivity {
                 GameActivity.this.startActivity(shopIntent);
             }
         });
-    }//TESTTEST i chuj aaa
-    //TEST2
+
+        ibDealer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent dealerIntent = new Intent(GameActivity.this, DealerActivity.class);
+                GameActivity.this.startActivity(dealerIntent);
+            }
+        });
+
+        ibHospital.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent hospitalIntent = new Intent(GameActivity.this, HospitalActivity.class);
+                GameActivity.this.startActivity(hospitalIntent);
+            }
+        });
+
+        ibQuests.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent questsIntent = new Intent(GameActivity.this, QuestActivity.class);
+                GameActivity.this.startActivity(questsIntent);
+            }
+        });
+    }
 }

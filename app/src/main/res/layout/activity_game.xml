@@ -167,7 +167,7 @@
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/imageButton3"
+        android:id="@+id/ibDealer"
         android:src="@drawable/dealer"
         android:layout_above="@+id/tvDealer"
         android:layout_alignParentRight="true"
@@ -196,8 +196,8 @@
         android:id="@+id/ibWhore"
         android:src="@drawable/whore"
         android:layout_below="@+id/tvDealer"
-        android:layout_alignLeft="@+id/imageButton3"
-        android:layout_alignStart="@+id/imageButton3" />
+        android:layout_alignLeft="@+id/ibDealer"
+        android:layout_alignStart="@+id/ibDealer" />
 
     <ImageButton
         android:layout_width="wrap_content"
