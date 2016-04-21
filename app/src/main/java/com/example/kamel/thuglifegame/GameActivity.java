@@ -17,6 +17,7 @@ public class GameActivity extends AppCompatActivity {
         final TextView Username = (TextView) findViewById(R.id.tvUsername);
 
         final ImageButton ibBank = (ImageButton) findViewById(R.id.ibBank);
+        final ImageButton ibWhores = (ImageButton) findViewById(R.id.ibWhore);
 
         Intent intent = getIntent();
         String username = intent.getStringExtra("username");
@@ -28,6 +29,13 @@ public class GameActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent bankIntent = new Intent(GameActivity.this, BankActivity.class);
                 GameActivity.this.startActivity(bankIntent);
+            }
+        });
+        ibWhores.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent whoresIntent = new Intent(GameActivity.this, WhoresActivity.class);
+                GameActivity.this.startActivity(whoresIntent);
             }
         });
 
