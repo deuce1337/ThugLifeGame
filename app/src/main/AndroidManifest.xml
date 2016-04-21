@@ -23,7 +23,10 @@
         <activity android:name=".ShopActivity" />
         <activity android:name=".DealerActivity" />
         <activity android:name=".HospitalActivity" />
-        <activity android:name=".QuestActivity"></activity>
+        <activity android:name=".QuestActivity"/>
+        <activity android:name=".CasinoActivity" />
+        <activity android:name=".PrisonActivity" />
+        <activity android:name=".VIPActivity"></activity>
     </application>
 
 </manifest>
