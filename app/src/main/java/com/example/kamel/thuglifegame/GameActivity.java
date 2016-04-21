@@ -17,9 +17,7 @@ public class GameActivity extends AppCompatActivity {
         final TextView Username = (TextView) findViewById(R.id.tvUsername);
 
         final ImageButton ibBank = (ImageButton) findViewById(R.id.ibBank);
-        final ImageButton ibShop = (ImageButton) findViewById(R.id.ibShop);
-
-
+        final ImageButton ibWhores = (ImageButton) findViewById(R.id.ibWhore);
 
         Intent intent = getIntent();
         String username = intent.getStringExtra("username");
@@ -33,15 +31,14 @@ public class GameActivity extends AppCompatActivity {
                 GameActivity.this.startActivity(bankIntent);
             }
         });
-
-        ibShop.setOnClickListener(new View.OnClickListener() {
+        ibWhores.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent shopIntent = new Intent(GameActivity.this, ShopActivity.class);
-                GameActivity.this.startActivity(shopIntent);
+                Intent whoresIntent = new Intent(GameActivity.this, WhoresActivity.class);
+                GameActivity.this.startActivity(whoresIntent);
             }
         });
 
-    }
-
+    }//TESTTEST i chuj aaa
+    //TEST2
 }
