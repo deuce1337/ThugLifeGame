@@ -18,6 +18,7 @@ public class GameActivity extends AppCompatActivity {
 
         final ImageButton ibBank = (ImageButton) findViewById(R.id.ibBank);
         final ImageButton ibWhores = (ImageButton) findViewById(R.id.ibWhore);
+        final ImageButton ibShop = (ImageButton) findViewById(R.id.ibShop);
 
         Intent intent = getIntent();
         String username = intent.getStringExtra("username");
@@ -38,7 +39,13 @@ public class GameActivity extends AppCompatActivity {
                 GameActivity.this.startActivity(whoresIntent);
             }
         });
-
+        ibShop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent shopIntent = new Intent(GameActivity.this, ShopActivity.class);
+                GameActivity.this.startActivity(shopIntent);
+            }
+        });
     }//TESTTEST i chuj aaa
     //TEST2
 }
