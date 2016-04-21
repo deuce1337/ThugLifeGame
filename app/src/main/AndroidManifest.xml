@@ -20,7 +20,8 @@
         <activity android:name=".RegisterActivity" />
         <activity android:name=".GameActivity" />
         <activity android:name=".BankActivity" />
-        <activity android:name=".ShopActivity"></activity>
+        <activity android:name=".ShopActivity" />
+        <activity android:name=".MainActivity"></activity>
     </application>
 
 </manifest>
