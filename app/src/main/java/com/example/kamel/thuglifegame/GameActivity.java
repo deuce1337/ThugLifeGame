@@ -47,7 +47,6 @@ public class GameActivity extends AppCompatActivity {
             }
         });
 
-
         ibShop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
