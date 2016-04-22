@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.kamel.thuglifegame.GameActivity">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/user"
+        android:id="@+id/tvUsername"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="@string/energy"
+        android:id="@+id/tvEnergy"
+        android:layout_alignBottom="@+id/tvUsername"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_toRightOf="@+id/ibShop"
+        android:layout_toEndOf="@+id/ibShop" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="@string/cash"
+        android:id="@+id/tvCash"
+        android:layout_alignRight="@+id/tvEnergy"
+        android:layout_alignEnd="@+id/tvEnergy"
+        android:layout_toEndOf="@+id/ibShop"
+        android:layout_below="@+id/tvEnergy"
+        android:layout_toRightOf="@+id/ibShop" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="@string/level"
+        android:id="@+id/tvLevel"
+        android:layout_below="@+id/tvUsername"
+        android:layout_alignLeft="@+id/tvUsername"
+        android:layout_alignStart="@+id/tvUsername"
+        android:layout_alignRight="@+id/tvUsername"
+        android:layout_alignEnd="@+id/tvUsername" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ibBank"
+        android:src="@drawable/bank"
+        android:layout_marginTop="38dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ibShop"
+        android:layout_alignTop="@+id/ibBank"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/gun"
+        android:contentDescription="1" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="@string/bank"
+        android:id="@+id/tvBank"
+        android:layout_alignTop="@+id/tvShop"
+        android:layout_alignRight="@+id/tvHospital"
+        android:layout_alignEnd="@+id/tvHospital" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="@string/shop"
+        android:id="@+id/tvShop"
+        android:layout_below="@+id/ibShop"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="@string/dealer"
+        android:id="@+id/tvDealer"
+        android:layout_above="@+id/ibQuests"
+        android:layout_alignLeft="@+id/tvVip"
+        android:layout_alignStart="@+id/tvVip" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="@string/hospital"
+        android:id="@+id/tvHospital"
+        android:layout_below="@+id/ibHospital"
+        android:layout_alignRight="@+id/tvLevel"
+        android:layout_alignEnd="@+id/tvLevel" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="@string/quests"
+        android:id="@+id/tvQuests"
+        android:layout_alignTop="@+id/tvHospital"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="@string/hookers"
+        android:id="@+id/tvHookers"
+        android:layout_above="@+id/ibPrison"
+        android:layout_alignRight="@+id/tvVip"
+        android:layout_alignEnd="@+id/tvVip" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="@string/casino"
+        android:id="@+id/tvCasino"
+        android:layout_below="@+id/ibCasino"
+        android:layout_alignRight="@+id/tvLevel"
+        android:layout_alignEnd="@+id/tvLevel" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="@string/prison"
+        android:id="@+id/tvPrison"
+        android:layout_below="@+id/ibCasino"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="@string/vip"
+        android:id="@+id/tvVip"
+        android:layout_alignBottom="@+id/ibVIP"
+        android:layout_alignRight="@+id/ibWhore"
+        android:layout_alignEnd="@+id/ibWhore"
+        android:layout_marginRight="29dp"
+        android:layout_marginEnd="29dp" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ibDealer"
+        android:src="@drawable/dealer"
+        android:layout_above="@+id/tvDealer"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ibHospital"
+        android:src="@drawable/hospital"
+        android:layout_below="@+id/tvBank"
+        android:layout_alignRight="@+id/ibBank"
+        android:layout_alignEnd="@+id/ibBank" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ibQuests"
+        android:src="@drawable/quests"
+        android:layout_above="@+id/tvQuests"
+        android:layout_centerHorizontal="true" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ibWhore"
+        android:src="@drawable/whore"
+        android:layout_below="@+id/tvDealer"
+        android:layout_alignLeft="@+id/ibDealer"
+        android:layout_alignStart="@+id/ibDealer" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ibCasino"
+        android:layout_below="@+id/tvHospital"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:src="@drawable/casino" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ibPrison"
+        android:src="@drawable/prison"
+        android:layout_above="@+id/tvPrison"
+        android:layout_centerHorizontal="true" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ibVIP"
+        android:src="@drawable/vip"
+        android:layout_below="@+id/ibPrison"
+        android:layout_alignLeft="@+id/tvPrison"
+        android:layout_alignStart="@+id/tvPrison" />
+
+</RelativeLayout>
+
