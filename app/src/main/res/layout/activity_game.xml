@@ -50,21 +50,20 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="false"
         android:layout_below="@+id/statisticBar"
         android:weightSum="1"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:id="@+id/mainView">
+        android:id="@+id/mainView"
+        android:layout_alignRight="@+id/statisticBar"
+        android:layout_alignEnd="@+id/statisticBar"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
 
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="20dp"
-            android:id="@+id/first"
-            android:layout_marginLeft="2dp">
+            android:layout_marginRight="14dp"
+            android:id="@+id/first">
 
             <ImageButton
                 android:layout_width="wrap_content"
@@ -111,7 +110,7 @@
             android:orientation="vertical"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="20dp"
+            android:layout_marginRight="14dp"
             android:id="@+id/second">
 
             <ImageButton
