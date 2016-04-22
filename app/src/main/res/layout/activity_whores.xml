@@ -16,5 +16,6 @@
         android:text="Twoje Lafiryndy"
         android:id="@+id/textView4"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="217dp" />
 </RelativeLayout>
