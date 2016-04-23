@@ -30,7 +30,8 @@
         <activity android:name=".VIPActivity" />
         <activity android:name=".WhoresActivity" />
         <activity android:name=".HscoreActivity" />
-        <activity android:name=".AchieveActivity"></activity>
+        <activity android:name=".AchieveActivity" />
+        <activity android:name=".StatisticActivity"></activity>
     </application>
 
 </manifest>
