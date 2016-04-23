@@ -1,10 +1,13 @@
 package com.example.kamel.thuglifegame;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class GameActivity extends AppCompatActivity {
@@ -13,6 +16,8 @@ public class GameActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
+
+
 
         final TextView Username = (TextView) findViewById(R.id.tvUsername);
 
@@ -27,11 +32,26 @@ public class GameActivity extends AppCompatActivity {
         final ImageButton ibVIP = (ImageButton) findViewById(R.id.ibVIP);
         final ImageButton ibHscore = (ImageButton) findViewById(R.id.ibHighscore);
         final ImageButton ibAchieve = (ImageButton) findViewById(R.id.ibAchievement);
+        final Button bStatistic = (Button) findViewById(R.id.bStat);
+
+
+        bStatistic.setVisibility(View.VISIBLE);
+        bStatistic.setBackgroundColor(Color.TRANSPARENT);
+
 
         Intent intent = getIntent();
         String username = intent.getStringExtra("username");
 
         Username.setText(username);
+
+        bStatistic.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent statIntent = new Intent(GameActivity.this, StatisticActivity.class);
+                GameActivity.this.startActivity(statIntent);
+            }
+        });
+
 
         ibBank.setOnClickListener(new View.OnClickListener() {
             @Override
