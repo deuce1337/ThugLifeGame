@@ -23,4 +23,7 @@
     <string name="dice">Gra w kości</string>
     <string name="rulette">Ruletka</string>
     <string name="black_jack">Black Jack</string>
+    <string name="prisonIntro">Siedzisz w pace ! Możesz poszmuglować z innymi cwelami lub spróbować uciec</string>
+    <string name="prisonWelcome">Upuszczasz mydło!</string>
+    <string name="escape">Ucieczka</string>
 </resources>
