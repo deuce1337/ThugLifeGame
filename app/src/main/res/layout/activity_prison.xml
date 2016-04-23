@@ -13,8 +13,27 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Upuszczasz mydło!"
-        android:id="@+id/textView6"
+        android:text="@string/prisonWelcome"
+        android:id="@+id/tvPrisonWelcome"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/prisonIntro"
+        android:id="@+id/tvPrisonIntro"
+        android:layout_below="@+id/tvPrisonWelcome"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/escape"
+        android:id="@+id/bEscape"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/tvPrisonIntro"
+        android:layout_alignEnd="@+id/tvPrisonIntro" />
 </RelativeLayout>

@@ -15,7 +15,7 @@
     <RelativeLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_height="75dp"
         android:id="@+id/statisticBar">
 
         <LinearLayout
@@ -49,7 +49,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_toRightOf="@+id/userView"
-            android:layout_toEndOf="@+id/userView">
+            android:layout_toEndOf="@+id/userView"
+            android:id="@+id/statView">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -86,25 +87,26 @@
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="350dp"
+        android:layout_height="310dp"
         android:layout_below="@+id/statisticBar"
         android:weightSum="1"
         android:id="@+id/mainView"
         android:layout_alignParentLeft="false"
         android:layout_alignParentStart="true"
         android:layout_alignRight="@+id/statisticBar"
-        android:layout_alignEnd="@+id/statisticBar">
+        android:layout_alignEnd="@+id/statisticBar"
+        android:layout_marginBottom="10dp">
 
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="14dp"
+            android:layout_marginRight="35dp"
             android:id="@+id/first">
 
             <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="85dp"
+                android:layout_height="85dp"
                 android:id="@+id/ibBank"
                 android:src="@drawable/bank"
                 android:contentDescription="@string/bank" />
@@ -117,8 +119,8 @@
                 android:id="@+id/tvBank" />
 
             <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="85dp"
+                android:layout_height="85dp"
                 android:id="@+id/ibHospital"
                 android:src="@drawable/hospital"
                 android:contentDescription="@string/hospital" />
@@ -131,8 +133,8 @@
                 android:id="@+id/tvHospital" />
 
             <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="85dp"
+                android:layout_height="85dp"
                 android:id="@+id/ibCasino"
                 android:src="@drawable/casino"
                 android:contentDescription="@string/casino" />
@@ -150,12 +152,12 @@
             android:orientation="vertical"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="14dp"
+            android:layout_marginRight="35dp"
             android:id="@+id/second">
 
             <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="85dp"
+                android:layout_height="85dp"
                 android:id="@+id/ibShop"
                 android:src="@drawable/gun"
                 android:contentDescription="@string/shop" />
@@ -168,8 +170,8 @@
                 android:id="@+id/tvShop" />
 
             <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="85dp"
+                android:layout_height="85dp"
                 android:id="@+id/ibPrison"
                 android:src="@drawable/prison"
                 android:contentDescription="@string/prison" />
@@ -182,8 +184,8 @@
                 android:text="@string/prison" />
 
             <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="85dp"
+                android:layout_height="85dp"
                 android:id="@+id/ibQuests"
                 android:src="@drawable/quests"
                 android:contentDescription="@string/quests" />
@@ -203,8 +205,8 @@
             android:id="@+id/third">
 
             <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="85dp"
+                android:layout_height="85dp"
                 android:id="@+id/ibDealer"
                 android:src="@drawable/dealer"
                 android:contentDescription="@string/dealer" />
@@ -217,8 +219,8 @@
                 android:id="@+id/tvDealer" />
 
             <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="85dp"
+                android:layout_height="85dp"
                 android:id="@+id/ibHookers"
                 android:src="@drawable/whore"
                 android:contentDescription="@string/hookers" />
@@ -231,8 +233,8 @@
                 android:id="@+id/tvHookers" />
 
             <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="85dp"
+                android:layout_height="85dp"
                 android:id="@+id/ibVIP"
                 android:src="@drawable/vip"
                 android:contentDescription="@string/vip" />
@@ -250,21 +252,21 @@
 
     <LinearLayout
         android:orientation="horizontal"
-        android:layout_width="220dp"
-        android:layout_height="match_parent"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/mainView"
         android:id="@+id/extraView"
-        android:layout_marginLeft="60dp"
-        android:layout_alignParentBottom="true">
+        android:layout_marginLeft="60dp">
 
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:id="@+id/left">
 
             <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="85dp"
+                android:layout_height="85dp"
                 android:id="@+id/ibHighscore"
                 android:src="@drawable/highscore"
                 android:layout_marginRight="15dp"
@@ -281,11 +283,12 @@
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:id="@+id/right">
 
             <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="85dp"
+                android:layout_height="85dp"
                 android:id="@+id/ibAchievement"
                 android:src="@drawable/achievement"
                 android:contentDescription="@string/achemement" />
