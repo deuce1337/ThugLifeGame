@@ -28,7 +28,9 @@
         <activity android:name=".CasinoActivity" />
         <activity android:name=".PrisonActivity" />
         <activity android:name=".VIPActivity" />
-        <activity android:name=".WhoresActivity"></activity>
+        <activity android:name=".WhoresActivity" />
+        <activity android:name=".HscoreActivity" />
+        <activity android:name=".AchieveActivity"></activity>
     </application>
 
 </manifest>

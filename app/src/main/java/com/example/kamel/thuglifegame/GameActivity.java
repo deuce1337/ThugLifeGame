@@ -25,6 +25,8 @@ public class GameActivity extends AppCompatActivity {
         final ImageButton ibCasino = (ImageButton) findViewById(R.id.ibCasino);
         final ImageButton ibPrison = (ImageButton) findViewById(R.id.ibPrison);
         final ImageButton ibVIP = (ImageButton) findViewById(R.id.ibVIP);
+        final ImageButton ibHscore = (ImageButton) findViewById(R.id.ibHighscore);
+        final ImageButton ibAchieve = (ImageButton) findViewById(R.id.ibAchievement);
 
         Intent intent = getIntent();
         String username = intent.getStringExtra("username");
@@ -97,6 +99,20 @@ public class GameActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent vipIntent = new Intent(GameActivity.this, VIPActivity.class);
                 GameActivity.this.startActivity(vipIntent);
+            }
+        });
+        ibHscore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent hscoreIntent = new Intent(GameActivity.this, HscoreActivity.class);
+                GameActivity.this.startActivity(hscoreIntent);
+            }
+        });
+        ibAchieve.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent achieveIntent = new Intent(GameActivity.this, AchieveActivity.class);
+                GameActivity.this.startActivity(achieveIntent);
             }
         });
     }
