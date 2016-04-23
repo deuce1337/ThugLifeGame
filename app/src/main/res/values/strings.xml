@@ -17,4 +17,7 @@
     <string name="high">Bania:</string>
     <string name="highscore">Ranking</string>
     <string name="achemement">Osiągnięcia</string>
+    <string name="bankIntro">Tutaj możesz przetrzymywać swoją flote, aby jakieś społeczniaki Ci jej nie wykradły</string>
+    <string name="deposit">Wpłać:</string>
+    <string name="withdraw">Wypłać:</string>
 </resources>
