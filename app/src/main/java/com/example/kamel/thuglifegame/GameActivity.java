@@ -17,7 +17,7 @@ public class GameActivity extends AppCompatActivity {
         final TextView Username = (TextView) findViewById(R.id.tvUsername);
 
         final ImageButton ibBank = (ImageButton) findViewById(R.id.ibBank);
-        final ImageButton ibWhores = (ImageButton) findViewById(R.id.ibWhore);
+        final ImageButton ibWhores = (ImageButton) findViewById(R.id.ibHookers);
         final ImageButton ibShop = (ImageButton) findViewById(R.id.ibShop);
         final ImageButton ibDealer = (ImageButton) findViewById(R.id.ibDealer);
         final ImageButton ibHospital = (ImageButton) findViewById(R.id.ibHospital);
