@@ -1,5 +1,5 @@
 <?php
-    $con = mysqli_connect("mysql6.000webhost.com", "a2003414_root", "thuglife34", "a2003414_users");
+    $con = mysqli_connect("mysql.hostinger.pl", "u163029655_root", "thuglifebaza14nowa", "u163029655_users");
     
     $name = $_POST["name"];
     $age = $_POST["age"];

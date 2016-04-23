@@ -12,51 +12,88 @@
     tools:context="com.example.kamel.thuglifegame.GameActivity">
 
 
-    <LinearLayout
+    <RelativeLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="95dp"
+        android:layout_height="70dp"
         android:id="@+id/statisticBar">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/user"
-            android:id="@+id/tvUsername" />
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="172dp"
+            android:layout_height="78dp"
+            android:id="@+id/userView"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentBottom="true"
+            android:weightSum="1">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="@string/energy"
-            android:id="@+id/tvEnergy" />
+            <ImageView
+                android:layout_width="61dp"
+                android:layout_height="match_parent"
+                android:id="@+id/imageView2"
+                android:layout_weight="0.19" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="@string/level"
-            android:id="@+id/tvLevel" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/user"
+                android:id="@+id/tvUsername"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="10dp" />
+        </LinearLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="@string/cash"
-            android:id="@+id/tvCash" />
-    </LinearLayout>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_toRightOf="@+id/userView"
+            android:layout_toEndOf="@+id/userView">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="@string/cash"
+                android:id="@+id/tvCash" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="@string/energy"
+                android:id="@+id/tvEnergy"
+                android:layout_gravity="center_vertical" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="@string/level"
+                android:id="@+id/tvLevel" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="@string/high"
+                android:id="@+id/tvHigh" />
+        </LinearLayout>
+
+    </RelativeLayout>
 
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="350dp"
         android:layout_below="@+id/statisticBar"
         android:weightSum="1"
         android:id="@+id/mainView"
+        android:layout_alignParentLeft="false"
+        android:layout_alignParentStart="true"
         android:layout_alignRight="@+id/statisticBar"
-        android:layout_alignEnd="@+id/statisticBar"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+        android:layout_alignEnd="@+id/statisticBar">
 
         <LinearLayout
             android:orientation="vertical"
@@ -200,6 +237,55 @@
 
         </LinearLayout>
 
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="640px"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/mainView"
+        android:id="@+id/extraView"
+        android:layout_marginLeft="60dp"
+        android:layout_alignParentBottom="true">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/ibHighscore"
+                android:src="@drawable/highscore"
+                android:layout_marginRight="15dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="@string/highscore"
+                android:id="@+id/tvHighscore" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/ibAchievement"
+                android:src="@drawable/achievement" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="Osiągnięcia"
+                android:id="@+id/tvAchievement" />
+        </LinearLayout>
     </LinearLayout>
 
 
