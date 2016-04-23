@@ -7,14 +7,77 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.kamel.thuglifegame.CasinoActivity">
+    tools:context="com.example.kamel.thuglifegame.DealerActivity">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Kasyno"
-        android:id="@+id/textView5"
+        android:text="@string/casino"
+        android:id="@+id/tvDealerWelcome"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ibDice"
+        android:layout_marginTop="57dp"
+        android:layout_below="@+id/tvDealerWelcome"
+        android:layout_alignLeft="@+id/ibRoulette"
+        android:layout_alignStart="@+id/ibRoulette"
+        android:src="@drawable/dice"
+        android:contentDescription="@string/dice" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="@string/dice"
+        android:id="@+id/tvDice"
+        android:layout_below="@+id/ibDice"
+        android:layout_alignLeft="@+id/ibDice"
+        android:layout_alignStart="@+id/ibDice" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ibRoulette"
+        android:src="@drawable/roulette"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@+id/tvDealerWelcome"
+        android:layout_toStartOf="@+id/tvDealerWelcome"
+        android:contentDescription="@string/rulette" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="@string/rulette"
+        android:id="@+id/tvRoulette"
+        android:layout_below="@+id/ibRoulette"
+        android:layout_alignLeft="@+id/ibRoulette"
+        android:layout_alignStart="@+id/ibRoulette" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ibBlackJack"
+        android:layout_below="@+id/ibRoulette"
+        android:layout_alignLeft="@+id/ibRoulette"
+        android:layout_alignStart="@+id/ibRoulette"
+        android:layout_marginTop="38dp"
+        android:src="@drawable/blackjack"
+        android:contentDescription="@string/black_jack" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="@string/black_jack"
+        android:id="@+id/tvBlackJack"
+        android:layout_below="@+id/ibBlackJack"
+        android:layout_alignLeft="@+id/ibBlackJack"
+        android:layout_alignStart="@+id/ibBlackJack" />
+
 </RelativeLayout>
