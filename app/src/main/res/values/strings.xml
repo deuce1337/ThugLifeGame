@@ -27,4 +27,11 @@
     <string name="prisonWelcome">Upuszczasz mydło!</string>
     <string name="escape">Ucieczka</string>
     <string name="dealerWelcome">Pssst... Młody, chcesz coś z \"pod lady\" ??</string>
+    <string name="rank">Ranking</string>
+    <string name="list">Lista</string>
+    <string name="buy">Kup</string>
+    <string name="whores">Twoje Lafiryndy</string>
+    <string name="statistic">Statystyki</string>
+    <string name="shopWelcome">Sklep z bronią</string>
+    <string name="shopIntro">Elo młody, spraw sobie klamkę</string>
 </resources>
