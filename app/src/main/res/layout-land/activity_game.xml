@@ -159,8 +159,8 @@
         android:text="@string/vip"
         android:id="@+id/tvVip"
         android:layout_alignBottom="@+id/ibVIP"
-        android:layout_alignRight="@+id/ibWhore"
-        android:layout_alignEnd="@+id/ibWhore"
+        android:layout_alignRight="@+id/ibHookers"
+        android:layout_alignEnd="@+id/ibHookers"
         android:layout_marginRight="29dp"
         android:layout_marginEnd="29dp" />
 
@@ -193,7 +193,7 @@
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/ibWhore"
+        android:id="@+id/ibHookers"
         android:src="@drawable/whore"
         android:layout_below="@+id/tvDealer"
         android:layout_alignLeft="@+id/ibDealer"
