@@ -20,4 +20,7 @@
     <string name="bankIntro">Tutaj możesz przetrzymywać swoją flote, aby jakieś społeczniaki Ci jej nie wykradły</string>
     <string name="deposit">Wpłać:</string>
     <string name="withdraw">Wypłać:</string>
+    <string name="dice">Gra w kości</string>
+    <string name="rulette">Ruletka</string>
+    <string name="black_jack">Black Jack</string>
 </resources>
