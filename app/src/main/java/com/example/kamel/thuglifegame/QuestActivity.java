@@ -13,7 +13,7 @@ public class QuestActivity extends AppCompatActivity {
 
         final ListView questList = (ListView) findViewById(R.id.lvQuest);
 
-
+//Tu bede pracował Ja (Kamil)
 
     }
 }
