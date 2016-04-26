@@ -17,8 +17,6 @@ public class GameActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
 
-
-
         final TextView Username = (TextView) findViewById(R.id.tvUsername);
 
         final ImageButton ibBank = (ImageButton) findViewById(R.id.ibBank);
@@ -34,10 +32,8 @@ public class GameActivity extends AppCompatActivity {
         final ImageButton ibAchieve = (ImageButton) findViewById(R.id.ibAchievement);
         final Button bStatistic = (Button) findViewById(R.id.bStat);
 
-
         bStatistic.setVisibility(View.VISIBLE);
         bStatistic.setBackgroundColor(Color.TRANSPARENT);
-
 
         Intent intent = getIntent();
         String username = intent.getStringExtra("username");
