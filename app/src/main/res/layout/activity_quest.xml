@@ -27,4 +27,14 @@
         android:layout_alignParentStart="true"
         android:layout_marginTop="81dp"
         android:choiceMode="singleChoice" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/questIntro"
+        android:id="@+id/tvQuestIntro"
+        android:layout_below="@+id/tvQuest"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 </RelativeLayout>
