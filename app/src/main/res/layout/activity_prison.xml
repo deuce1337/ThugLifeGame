@@ -7,7 +7,8 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.kamel.thuglifegame.PrisonActivity">
+    tools:context="com.example.kamel.thuglifegame.PrisonActivity"
+    android:background="@drawable/jailbg">
 
     <TextView
         android:layout_width="wrap_content"
@@ -34,6 +35,6 @@
         android:text="@string/escape"
         android:id="@+id/bEscape"
         android:layout_alignParentBottom="true"
-        android:layout_alignRight="@+id/tvPrisonIntro"
-        android:layout_alignEnd="@+id/tvPrisonIntro" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 </RelativeLayout>
