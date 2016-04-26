@@ -1,19 +1,22 @@
 package com.example.kamel.thuglifegame;
 
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-import android.support.v7.app.AppCompatActivity;
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.os.AsyncTask;
 import android.os.Bundle;
-import android.widget.ArrayAdapter;
+import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
+import java.io.FileNotFoundException;
 
 public class QuestActivity extends AppCompatActivity {
 
-    private ArrayList<String> arrayList;
-    private ArrayAdapter<String> adapter;
+    private QuestAdapter mAdapter;
+    private ListView questList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,25 +24,64 @@ public class QuestActivity extends AppCompatActivity {
         setContentView(R.layout.activity_quest);
 
 
-        SQLiteDatabase mydatabase = openOrCreateDatabase("db_list",MODE_PRIVATE,null);
+        questList = (ListView) findViewById(R.id.lvQuest);
 
-        mydatabase.execSQL("CREATE TABLE IF NOT EXISTS questsList(name VARCHAR,description VARCHAR);");
-        mydatabase.execSQL("INSERT INTO questsList VALUES('Staruszka','Ukradnij portfel babci');");
+        questList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-        final ListView questList = (ListView) findViewById(R.id.lvQuest);
+            }
+        });
 
-        Cursor resultSet = mydatabase.rawQuery("Select * from questsList",null);
-        resultSet.moveToFirst();
-        String name = resultSet.getString(1);
-        String description = resultSet.getString(2);
-
-
-        arrayList = new ArrayList<String>();
-        arrayList.add(name);
-        arrayList.add(description);
-
-        //adapter = new ArrayAdapter<String>(this,arrayList);
+      /*
+		 * If network is available download the xml from the Internet.
+		 * If not then try to use the local file from last time.
+		 */
+        if(isNetworkAvailable()){
+            Log.i("questList", "starting download Task");
+            SitesDownloadTask download = new SitesDownloadTask();
+            download.execute();
+        }else{
+            mAdapter = new QuestAdapter(getApplicationContext(), -1, QuestXmlPullParser.getQuestListsFromFile(QuestActivity.this));
+            questList.setAdapter(mAdapter);
+        }
 
 
     }
+
+    //Helper method to determine if Internet connection is available.
+    private boolean isNetworkAvailable() {
+        ConnectivityManager connectivityManager
+                = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
+    }
+
+    /*
+	 * AsyncTask that will download the xml file for us and store it locally.
+	 * After the download is done we'll parse the local file.
+	 */
+    private class SitesDownloadTask extends AsyncTask<Void, Void, Void> {
+
+        @Override
+        protected Void doInBackground(Void... arg0) {
+            //Download the file
+            try {
+                Downloader.DownloadFromUrl("http://thuglifegame.xyz/questList.xml", openFileOutput("questList.xml", Context.MODE_PRIVATE));
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void result){
+            //setup our Adapter and set it to the ListView.
+            mAdapter = new QuestAdapter(QuestActivity.this, -1, QuestXmlPullParser.getQuestListsFromFile(QuestActivity.this));
+            questList.setAdapter(mAdapter);
+            Log.i("questList", "adapter size = "+ mAdapter.getCount());
+        }
+    }
+
 }
