@@ -33,6 +33,4 @@ public class QuestList {
         this.imgUrl = imgUrl;
     }
 
-
-
 }
