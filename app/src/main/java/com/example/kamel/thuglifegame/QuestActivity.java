@@ -67,7 +67,7 @@ public class QuestActivity extends AppCompatActivity {
         protected Void doInBackground(Void... arg0) {
             //Download the file
             try {
-                Downloader.DownloadFromUrl("http://thuglifegame.xyz/questList.xml", openFileOutput("questList.xml", Context.MODE_PRIVATE));
+                Downloader.DownloadFromUrl("http://thuglifegame.xyz/quests/questList.xml", openFileOutput("questList.xml", Context.MODE_PRIVATE));
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
