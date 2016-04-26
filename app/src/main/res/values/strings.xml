@@ -35,4 +35,8 @@
     <string name="shopWelcome">Sklep z bronią</string>
     <string name="shopIntro">Elo młody, spraw sobie klamkę</string>
     <string name="questIntro">Możesz gromadzić hajs i doświadczenie poprzez branie udziału w różnych akcjach, ale pamiętaj zawsze możesz umoczyć dupe !</string>
+    <string name="login">Login</string>
+    <string name="password">Hasło</string>
+    <string name="login1">Login</string>
+    <string name="rejestracja">Rejestracja</string>
 </resources>
