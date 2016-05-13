@@ -7,7 +7,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".Activitys.BankActivity"
+    tools:context=".Activities.BankActivity"
     android:background="@mipmap/bankbg">
 
     <TextView
@@ -30,8 +30,8 @@
         android:layout_centerVertical="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/etWithdraw"
-        android:layout_alignEnd="@+id/etWithdraw" />
+        android:layout_alignRight="@+id/tvBankIntro"
+        android:layout_alignEnd="@+id/tvBankIntro" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -49,8 +49,10 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="@string/withdraw"
         android:id="@+id/tvWithdraw"
-        android:layout_marginTop="35dp"
-        android:layout_below="@+id/etDeposit" />
+        android:layout_marginTop="76dp"
+        android:layout_below="@+id/etDeposit"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -61,8 +63,8 @@
         android:layout_below="@+id/tvWithdraw"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/tvBankIntro"
-        android:layout_alignEnd="@+id/tvBankIntro" />
+        android:layout_alignRight="@+id/etDeposit"
+        android:layout_alignEnd="@+id/etDeposit" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -80,6 +82,24 @@
         android:text="@string/bankIntro"
         android:id="@+id/tvBankIntro"
         android:layout_below="@+id/tvBankWelcome"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@android:string/ok"
+        android:id="@+id/bDeposit"
+        android:layout_below="@+id/etDeposit"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@android:string/ok"
+        android:id="@+id/bWithdraw"
+        android:layout_below="@+id/etWithdraw"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 

@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.kamel.thuglifegame">
 
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
@@ -13,27 +13,27 @@
         android:screenOrientation="portrait"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
-        <activity android:name=".Activitys.LoginActivity">
+        <activity android:name=".Activities.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Activitys.RegisterActivity" />
-        <activity android:name=".Activitys.GameActivity" />
-        <activity android:name=".Activitys.BankActivity" />
-        <activity android:name=".Activitys.ShopActivity" />
-        <activity android:name=".Activitys.DealerActivity" />
-        <activity android:name=".Activitys.HospitalActivity" />
-        <activity android:name=".Activitys.QuestActivity" />
-        <activity android:name=".Activitys.CasinoActivity" />
-        <activity android:name=".Activitys.PrisonActivity" />
-        <activity android:name=".Activitys.VIPActivity" />
-        <activity android:name=".Activitys.WhoresActivity" />
-        <activity android:name=".Activitys.HscoreActivity" />
-        <activity android:name=".Activitys.AchieveActivity" />
-        <activity android:name=".Activitys.StatisticActivity"></activity>
+        <activity android:name=".Activities.RegisterActivity" />
+        <activity android:name=".Activities.GameActivity" />
+        <activity android:name=".Activities.BankActivity" />
+        <activity android:name=".Activities.ShopActivity" />
+        <activity android:name=".Activities.DealerActivity" />
+        <activity android:name=".Activities.HospitalActivity" />
+        <activity android:name=".Activities.QuestActivity" />
+        <activity android:name=".Activities.CasinoActivity" />
+        <activity android:name=".Activities.PrisonActivity" />
+        <activity android:name=".Activities.VIPActivity" />
+        <activity android:name=".Activities.WhoresActivity" />
+        <activity android:name=".Activities.HscoreActivity" />
+        <activity android:name=".Activities.AchieveActivity" />
+        <activity android:name=".Activities.StatisticActivity" />
     </application>
 
 </manifest>

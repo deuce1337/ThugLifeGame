@@ -1,4 +1,4 @@
-package com.example.kamel.thuglifegame.Activitys;
+package com.example.kamel.thuglifegame.Activities;
 
 import android.content.Context;
 import android.net.ConnectivityManager;
@@ -7,48 +7,38 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ListView;
 
+import com.example.kamel.thuglifegame.LoadXML.Dealer.DealerAdapter;
+import com.example.kamel.thuglifegame.LoadXML.Dealer.DealerXmlPullParser;
 import com.example.kamel.thuglifegame.LoadXML.Downloader;
-import com.example.kamel.thuglifegame.LoadXML.Quests.QuestAdapter;
-import com.example.kamel.thuglifegame.LoadXML.Quests.QuestXmlPullParser;
 import com.example.kamel.thuglifegame.R;
 
 import java.io.FileNotFoundException;
 
-public class QuestActivity extends AppCompatActivity {
+public class DealerActivity extends AppCompatActivity {
 
-    private QuestAdapter mAdapter;
-    private ListView questList;
+    private DealerAdapter sAdapter;
+    private ListView dealerList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_quest);
+        setContentView(R.layout.activity_dealer);
 
+        dealerList = (ListView) findViewById(R.id.lvDrugs);
 
-        questList = (ListView) findViewById(R.id.lvQuest);
-
-        questList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-            }
-        });
-
-      /*
+        /*
 		 * If network is available download the xml from the Internet.
 		 * If not then try to use the local file from last time.
 		 */
         if(isNetworkAvailable()){
-            Log.i("questList", "starting download Task");
-            SitesDownloadTask download = new SitesDownloadTask();
-            download.execute();
+            Log.i("drugList", "starting download Task");
+            SitesDownloadTask downloader = new SitesDownloadTask();
+            downloader.execute();
         }else{
-            mAdapter = new QuestAdapter(getApplicationContext(), -1, QuestXmlPullParser.getQuestListsFromFile(QuestActivity.this));
-            questList.setAdapter(mAdapter);
+            sAdapter = new DealerAdapter(getApplicationContext(), -1, DealerXmlPullParser.getDealerListsFromFile(DealerActivity.this));
+            dealerList.setAdapter(sAdapter);
         }
 
 
@@ -72,7 +62,7 @@ public class QuestActivity extends AppCompatActivity {
         protected Void doInBackground(Void... arg0) {
             //Download the file
             try {
-                Downloader.DownloadFromUrl("http://thuglifegame.xyz/quests/questList.xml", openFileOutput("questList.xml", Context.MODE_PRIVATE));
+                Downloader.DownloadFromUrl("http://thuglifegame.xyz/dealer/drugList.xml", openFileOutput("drugList.xml", Context.MODE_PRIVATE));
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
@@ -83,10 +73,9 @@ public class QuestActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(Void result){
             //setup our Adapter and set it to the ListView.
-            mAdapter = new QuestAdapter(QuestActivity.this, -1, QuestXmlPullParser.getQuestListsFromFile(QuestActivity.this));
-            questList.setAdapter(mAdapter);
-            Log.i("questList", "adapter size = "+ mAdapter.getCount());
+            sAdapter = new DealerAdapter(DealerActivity.this, -1, DealerXmlPullParser.getDealerListsFromFile(DealerActivity.this));
+            dealerList.setAdapter(sAdapter);
+            Log.i("drugList", "adapter size = "+ sAdapter.getCount());
         }
     }
-
 }

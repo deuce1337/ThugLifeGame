@@ -7,7 +7,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".Activitys.StatisticActivity"
+    tools:context=".Activities.StatisticActivity"
     android:background="@mipmap/statbg">
 
     <TextView
@@ -64,9 +64,29 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Small Text"
-        android:id="@+id/textView5"
+        android:text="@string/inteligence"
+        android:id="@+id/tvInteligence"
         android:layout_below="@+id/tvStrong"
         android:layout_alignLeft="@+id/tvStrong"
         android:layout_alignStart="@+id/tvStrong" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="@string/agility"
+        android:id="@+id/tvAgility"
+        android:layout_below="@+id/tvInteligence"
+        android:layout_alignLeft="@+id/tvInteligence"
+        android:layout_alignStart="@+id/tvInteligence" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="@string/respect"
+        android:id="@+id/tvRespect"
+        android:layout_below="@+id/tvAgility"
+        android:layout_alignLeft="@+id/tvAgility"
+        android:layout_alignStart="@+id/tvAgility" />
 </RelativeLayout>

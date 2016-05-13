@@ -1,4 +1,4 @@
-package com.example.kamel.thuglifegame.Activitys;
+package com.example.kamel.thuglifegame.Activities;
 
 import android.content.Intent;
 import android.graphics.Color;

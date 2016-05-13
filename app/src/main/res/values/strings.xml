@@ -39,4 +39,7 @@
     <string name="password">Hasło</string>
     <string name="login1">Login</string>
     <string name="rejestracja">Rejestracja</string>
+    <string name="inteligence">Inteligencja:</string>
+    <string name="agility">Zręczność:</string>
+    <string name="respect">Respect:</string>
 </resources>
