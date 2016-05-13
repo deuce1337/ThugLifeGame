@@ -4,21 +4,21 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.ListView;
 
 import com.example.kamel.thuglifegame.LoadXML.Downloader;
-import com.example.kamel.thuglifegame.LoadXML.QuestAdapter;
+import com.example.kamel.thuglifegame.LoadXML.Shop.ShopAdapter;
+import com.example.kamel.thuglifegame.LoadXML.Shop.ShopXmlPullParser;
 import com.example.kamel.thuglifegame.R;
-import com.example.kamel.thuglifegame.LoadXML.ShopXmlPullParser;
 
 import java.io.FileNotFoundException;
 
 public class ShopActivity extends AppCompatActivity {
 
-    private QuestAdapter sAdapter;
+    private ShopAdapter sAdapter;
     private ListView shopList;
 
     @Override
@@ -37,7 +37,7 @@ public class ShopActivity extends AppCompatActivity {
             SitesDownloadTask downloader = new SitesDownloadTask();
             downloader.execute();
         }else{
-            sAdapter = new QuestAdapter(getApplicationContext(), -1, ShopXmlPullParser.getQuestListsFromFile(ShopActivity.this));
+            sAdapter = new ShopAdapter(getApplicationContext(), -1, ShopXmlPullParser.getShopListsFromFile(ShopActivity.this));
             shopList.setAdapter(sAdapter);
         }
 
@@ -73,7 +73,7 @@ public class ShopActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(Void result){
             //setup our Adapter and set it to the ListView.
-            sAdapter = new QuestAdapter(ShopActivity.this, -1, ShopXmlPullParser.getQuestListsFromFile(ShopActivity.this));
+            sAdapter = new ShopAdapter(ShopActivity.this, -1, ShopXmlPullParser.getShopListsFromFile(ShopActivity.this));
             shopList.setAdapter(sAdapter);
             Log.i("shopList", "adapter size = "+ sAdapter.getCount());
         }

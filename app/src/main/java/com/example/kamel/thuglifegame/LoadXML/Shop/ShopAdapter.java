@@ -1,4 +1,4 @@
-package com.example.kamel.thuglifegame.LoadXML;
+package com.example.kamel.thuglifegame.LoadXML.Shop;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -24,14 +24,14 @@ import java.util.List;
 /**
  * Created by Kamel on 2016-05-13.
  */
-public class DealerAdapter extends ArrayAdapter<DealerList> {
+public class ShopAdapter extends ArrayAdapter<ShopList> {
 
     ImageLoader imageLoader;
     DisplayImageOptions options;
 
 
-    public DealerAdapter(Context ctx, int textViewResourceId, List<DealerList> drug) {
-        super(ctx, textViewResourceId, drug);
+    public ShopAdapter(Context ctx, int textViewResourceId, List<ShopList> gun) {
+        super(ctx, textViewResourceId, gun);
 
         //Setup the ImageLoader, we'll use this to display our images
         ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(ctx).build();
@@ -58,11 +58,11 @@ public class DealerAdapter extends ArrayAdapter<DealerList> {
     @Override
     public View getView(int pos, View convertView, ViewGroup parent){
         RelativeLayout row = (RelativeLayout)convertView;
-        Log.i("DrugLists", "getView pos = " + pos);
+        Log.i("GunLists", "getView pos = " + pos);
         if(null == row){
             //No recycled View, we have to inflate one.
             LayoutInflater inflater = (LayoutInflater)parent.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            row = (RelativeLayout)inflater.inflate(R.layout.row_drug, null);
+            row = (RelativeLayout)inflater.inflate(R.layout.row_gun, null);
         }
 
         //Get our View References

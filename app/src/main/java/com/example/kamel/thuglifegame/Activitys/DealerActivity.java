@@ -9,8 +9,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.ListView;
 
-import com.example.kamel.thuglifegame.LoadXML.DealerAdapter;
-import com.example.kamel.thuglifegame.LoadXML.DealerXmlPullParser;
+import com.example.kamel.thuglifegame.LoadXML.Dealer.DealerAdapter;
+import com.example.kamel.thuglifegame.LoadXML.Dealer.DealerXmlPullParser;
 import com.example.kamel.thuglifegame.LoadXML.Downloader;
 import com.example.kamel.thuglifegame.R;
 

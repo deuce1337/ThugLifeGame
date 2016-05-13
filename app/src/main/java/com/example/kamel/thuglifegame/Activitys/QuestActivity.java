@@ -12,8 +12,8 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.example.kamel.thuglifegame.LoadXML.Downloader;
-import com.example.kamel.thuglifegame.LoadXML.QuestAdapter;
-import com.example.kamel.thuglifegame.LoadXML.QuestXmlPullParser;
+import com.example.kamel.thuglifegame.LoadXML.Quests.QuestAdapter;
+import com.example.kamel.thuglifegame.LoadXML.Quests.QuestXmlPullParser;
 import com.example.kamel.thuglifegame.R;
 
 import java.io.FileNotFoundException;

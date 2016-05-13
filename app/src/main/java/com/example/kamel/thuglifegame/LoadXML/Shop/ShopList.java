@@ -1,9 +1,9 @@
-package com.example.kamel.thuglifegame.LoadXML;
+package com.example.kamel.thuglifegame.LoadXML.Shop;
 
 /**
  * Created by Kamel on 2016-05-13.
  */
-public class DealerList {
+public class ShopList {
 
     private String name;
     private String about;
@@ -41,5 +41,4 @@ public class DealerList {
     public void setPrice(String price) {
         this.price = price;
     }
-
 }

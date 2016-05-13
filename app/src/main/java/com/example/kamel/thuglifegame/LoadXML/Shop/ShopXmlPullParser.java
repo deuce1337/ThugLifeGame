@@ -1,11 +1,9 @@
-package com.example.kamel.thuglifegame.LoadXML;
+package com.example.kamel.thuglifegame.LoadXML.Shop;
 
 /**
  * Created by Kamel on 2016-04-26.
  */
 import android.content.Context;
-
-import com.example.kamel.thuglifegame.LoadXML.QuestList;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserFactory;
@@ -16,21 +14,23 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
-public class QuestXmlPullParser {
+public class ShopXmlPullParser {
 
-    static final String KEY_QUEST = "quest";
+    static final String KEY_GUN = "gun";
     static final String KEY_NAME = "name";
     static final String KEY_ABOUT = "about";
     static final String KEY_IMAGE_URL = "image";
+    static final String KEY_PRICE = "price";
 
-    public static List<QuestList> getQuestListsFromFile(Context ctx) {
 
-        // List of QuestLists that we will return
-        List<QuestList> QuestLists;
-        QuestLists = new ArrayList<QuestList>();
+    public static List<ShopList> getShopListsFromFile(Context ctx) {
 
-        // temp holder for current QuestList while parsing
-        QuestList curQuestList = null;
+        // List of ShopLists that we will return
+        List<ShopList> ShopLists;
+        ShopLists = new ArrayList<ShopList>();
+
+        // temp holder for current ShopList while parsing
+        ShopList curShopList = null;
         // temp holder for current text value while parsing
         String curText = "";
 
@@ -40,7 +40,7 @@ public class QuestXmlPullParser {
             XmlPullParser xpp = factory.newPullParser();
 
             // Open up InputStream and Reader of our file.
-            FileInputStream fis = ctx.openFileInput("questList.xml");
+            FileInputStream fis = ctx.openFileInput("shopList.xml");
             BufferedReader reader = new BufferedReader(new InputStreamReader(fis));
 
             // point the parser to our file.
@@ -57,10 +57,10 @@ public class QuestXmlPullParser {
                 // React to different event types appropriately
                 switch (eventType) {
                     case XmlPullParser.START_TAG:
-                        if (tagname.equalsIgnoreCase(KEY_QUEST)) {
+                        if (tagname.equalsIgnoreCase(KEY_GUN)) {
                             // If we are starting a new <site> block we need
-                            //a new QuestList object to represent it
-                            curQuestList = new QuestList();
+                            //a new ShopList object to represent it
+                            curShopList = new ShopList();
                         }
                         break;
 
@@ -70,19 +70,22 @@ public class QuestXmlPullParser {
                         break;
 
                     case XmlPullParser.END_TAG:
-                        if (tagname.equalsIgnoreCase(KEY_QUEST)) {
+                        if (tagname.equalsIgnoreCase(KEY_GUN)) {
                             // if </site> then we are done with current Site
                             // add it to the list.
-                            QuestLists.add(curQuestList);
+                            ShopLists.add(curShopList);
                         } else if (tagname.equalsIgnoreCase(KEY_NAME)) {
                             // if </name> use setName() on curSite
-                            curQuestList.setName(curText);
+                            curShopList.setName(curText);
                         } else if (tagname.equalsIgnoreCase(KEY_ABOUT)) {
                             // if </about> use setAbout() on curSite
-                            curQuestList.setAbout(curText);
+                            curShopList.setAbout(curText);
                         } else if (tagname.equalsIgnoreCase(KEY_IMAGE_URL)) {
                             // if </image> use setImgUrl() on curSite
-                            curQuestList.setImgUrl(curText);
+                            curShopList.setImgUrl(curText);
+                        } else if (tagname.equalsIgnoreCase(KEY_PRICE)) {
+                            // if </price> use setPrice() on curSite
+                            curShopList.setPrice(curText);
                         }
                         break;
 
@@ -97,6 +100,6 @@ public class QuestXmlPullParser {
         }
 
         // return the populated list.
-        return QuestLists;
+        return ShopLists;
     }
 }

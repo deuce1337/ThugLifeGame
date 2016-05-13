@@ -1,4 +1,4 @@
-package com.example.kamel.thuglifegame.LoadXML;
+package com.example.kamel.thuglifegame.LoadXML.Dealer;
 
 import android.content.Context;
 

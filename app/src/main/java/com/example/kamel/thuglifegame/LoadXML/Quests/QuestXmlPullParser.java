@@ -1,9 +1,11 @@
-package com.example.kamel.thuglifegame.LoadXML;
+package com.example.kamel.thuglifegame.LoadXML.Quests;
 
 /**
  * Created by Kamel on 2016-04-26.
  */
 import android.content.Context;
+
+import com.example.kamel.thuglifegame.LoadXML.Quests.QuestList;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserFactory;
@@ -14,7 +16,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ShopXmlPullParser {
+public class QuestXmlPullParser {
 
     static final String KEY_QUEST = "quest";
     static final String KEY_NAME = "name";
@@ -38,7 +40,7 @@ public class ShopXmlPullParser {
             XmlPullParser xpp = factory.newPullParser();
 
             // Open up InputStream and Reader of our file.
-            FileInputStream fis = ctx.openFileInput("shopList.xml");
+            FileInputStream fis = ctx.openFileInput("questList.xml");
             BufferedReader reader = new BufferedReader(new InputStreamReader(fis));
 
             // point the parser to our file.
