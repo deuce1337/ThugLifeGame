@@ -1,13 +1,15 @@
-package com.example.kamel.thuglifegame;
+package com.example.kamel.thuglifegame.Activitys;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class HospitalActivity extends AppCompatActivity {
+import com.example.kamel.thuglifegame.R;
+
+public class PrisonActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_hospital);
+        setContentView(R.layout.activity_prison);
     }
 }

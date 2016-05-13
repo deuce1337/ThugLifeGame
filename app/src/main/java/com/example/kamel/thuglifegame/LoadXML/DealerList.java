@@ -1,13 +1,14 @@
-package com.example.kamel.thuglifegame;
+package com.example.kamel.thuglifegame.LoadXML;
 
 /**
- * Created by Kamel on 2016-04-26.
+ * Created by Kamel on 2016-05-13.
  */
-public class QuestList {
+public class DealerList {
 
     private String name;
     private String about;
     private String imgUrl;
+    private String price;
 
     public String getName() {
         return name;
@@ -31,6 +32,14 @@ public class QuestList {
 
     public void setImgUrl(String imgUrl) {
         this.imgUrl = imgUrl;
+    }
+
+    public String getPrice() {
+        return price;
+    }
+
+    public void setPrice(String price) {
+        this.price = price;
     }
 
 }

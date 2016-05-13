@@ -1,4 +1,4 @@
-package com.example.kamel.thuglifegame;
+package com.example.kamel.thuglifegame.LoadXML;
 
 /**
  * Created by Kamel on 2016-04-26.

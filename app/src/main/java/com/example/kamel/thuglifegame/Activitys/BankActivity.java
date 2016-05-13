@@ -1,7 +1,9 @@
-package com.example.kamel.thuglifegame;
+package com.example.kamel.thuglifegame.Activitys;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.example.kamel.thuglifegame.R;
 
 public class BankActivity extends AppCompatActivity {
 

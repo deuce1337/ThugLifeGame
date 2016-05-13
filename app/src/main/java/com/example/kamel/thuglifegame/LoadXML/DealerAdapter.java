@@ -1,8 +1,5 @@
-package com.example.kamel.thuglifegame;
+package com.example.kamel.thuglifegame.LoadXML;
 
-/**
- * Created by Kamel on 2016-04-26.
- */
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.util.Log;
@@ -15,6 +12,7 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.example.kamel.thuglifegame.R;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
@@ -23,19 +21,17 @@ import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
 
 import java.util.List;
 
-
-/*
- * Custom Adapter class that is responsible for holding the list of sites after they
- * get parsed out of XML and building row views to display them on the screen.
+/**
+ * Created by Kamel on 2016-05-13.
  */
-public class QuestAdapter extends ArrayAdapter<QuestList> {
+public class DealerAdapter extends ArrayAdapter<DealerList> {
 
     ImageLoader imageLoader;
     DisplayImageOptions options;
 
 
-    public QuestAdapter(Context ctx, int textViewResourceId, List<QuestList> quest) {
-        super(ctx, textViewResourceId, quest);
+    public DealerAdapter(Context ctx, int textViewResourceId, List<DealerList> drug) {
+        super(ctx, textViewResourceId, drug);
 
         //Setup the ImageLoader, we'll use this to display our images
         ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(ctx).build();
@@ -55,24 +51,25 @@ public class QuestAdapter extends ArrayAdapter<QuestList> {
     /*
      * (non-Javadoc)
      * @see android.widget.ArrayAdapter#getView(int, android.view.View, android.view.ViewGroup)
-     * 
+     *
      * This method is responsible for creating row views out of a QuestList object that can be put
      * into our ListView
      */
     @Override
     public View getView(int pos, View convertView, ViewGroup parent){
         RelativeLayout row = (RelativeLayout)convertView;
-        Log.i("QuestLists", "getView pos = " + pos);
+        Log.i("DrugLists", "getView pos = " + pos);
         if(null == row){
             //No recycled View, we have to inflate one.
             LayoutInflater inflater = (LayoutInflater)parent.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            row = (RelativeLayout)inflater.inflate(R.layout.row_quest, null);
+            row = (RelativeLayout)inflater.inflate(R.layout.row_drug, null);
         }
 
         //Get our View References
         final ImageView iconImg = (ImageView)row.findViewById(R.id.iconImg);
         TextView nameTxt = (TextView)row.findViewById(R.id.nameTxt);
         TextView aboutTxt = (TextView)row.findViewById(R.id.aboutTxt);
+        TextView priceTxt = (TextView)row.findViewById(R.id.priceTxt);
         final ProgressBar indicator = (ProgressBar)row.findViewById(R.id.progress);
 
         //Initially we want the progress indicator visible, and the image invisible
@@ -116,6 +113,7 @@ public class QuestAdapter extends ArrayAdapter<QuestList> {
         //Set the relavent text in our TextViews
         nameTxt.setText(getItem(pos).getName());
         aboutTxt.setText(getItem(pos).getAbout());
+        priceTxt.setText(getItem(pos).getPrice());
 
 
 
@@ -123,5 +121,4 @@ public class QuestAdapter extends ArrayAdapter<QuestList> {
 
 
     }
-
 }
