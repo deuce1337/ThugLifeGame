@@ -7,7 +7,8 @@ public class Player {
 
     private String Username;
 
-    private float Cash;
+    private double Cash;
+    private double Bank;
 
     private int Energy;
     private int Level;
@@ -26,11 +27,11 @@ public class Player {
         Username = username;
     }
 
-    public float getCash() {
+    public double getCash() {
         return Cash;
     }
 
-    public void setCash(float cash) {
+    public void setCash(double cash) {
         Cash = cash;
     }
 
@@ -96,6 +97,26 @@ public class Player {
 
     public void setRespect(int respect) {
         Respect = respect;
+    }
+
+    public double getBank() {
+        return Bank;
+    }
+
+    public void setBank(double bank) {
+        Bank = bank;
+    }
+
+    public void addBank (double bank)
+    {
+        Cash -= bank;
+        Bank += bank;
+    }
+
+    public void minusBank (double bank)
+    {
+        Cash += bank;
+        Bank -= bank;
     }
 
 

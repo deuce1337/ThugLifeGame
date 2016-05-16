@@ -16,15 +16,15 @@
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="@string/saldo"
         android:id="@+id/tvTotal"
-        android:layout_marginTop="26dp"
-        android:layout_below="@+id/tvBankIntro"
+        android:layout_above="@+id/tvDeposit"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="57dp" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="number"
+        android:inputType="number|numberSigned"
         android:ems="10"
         android:id="@+id/etDeposit"
         android:layout_centerVertical="true"
@@ -57,7 +57,7 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="number"
+        android:inputType="number|numberSigned"
         android:ems="10"
         android:id="@+id/etWithdraw"
         android:layout_below="@+id/tvWithdraw"
@@ -102,5 +102,16 @@
         android:layout_below="@+id/etWithdraw"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Small Text"
+        android:id="@+id/tvCash"
+        android:layout_below="@+id/tvBankIntro"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="30dp" />
 
 </RelativeLayout>

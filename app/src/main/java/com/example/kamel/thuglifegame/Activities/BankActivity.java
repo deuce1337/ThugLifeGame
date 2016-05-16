@@ -19,27 +19,53 @@ public class BankActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bank);
 
-        final TextView total = (TextView) findViewById(R.id.tvTotal);
+        final TextView bank = (TextView) findViewById(R.id.tvTotal);
+        final TextView money = (TextView) findViewById(R.id.tvCash);
 
-        final Button bdeposit = (Button) findViewById(R.id.bDeposit);
+        final Button bDeposit = (Button) findViewById(R.id.bDeposit);
+        final Button bWithdraw = (Button) findViewById(R.id.bWithdraw);
 
-        final EditText etdeposit = (EditText) findViewById(R.id.etDeposit);
+        final EditText etDeposit = (EditText) findViewById(R.id.etDeposit);
+        final EditText etWithdraw = (EditText) findViewById(R.id.etWithdraw);
 
         player = new Player();
 
+        player.setCash(20000.50);
 
-        bdeposit.setOnClickListener(new View.OnClickListener() {
+        money.setText("Hajs przy dupie: " + String.valueOf(player.getCash()) + " $");
+        bank.setText("Saldo: " + String.valueOf(player.getBank()) + " $");
+
+
+        bDeposit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                String temp = etdeposit.getText().toString();
+                String temp = etDeposit.getText().toString();
                 Float cash = Float.parseFloat(temp);
 
-                player.setCash(cash);
+                player.addBank(cash);
+
+                bank.setText("Saldo: " + String.valueOf(player.getBank()) + " $");
+                money.setText("Hajs przy dupie: " + String.valueOf(player.getCash()) + " $");
+
             }
         });
 
-        total.setText("Saldo: " + String.valueOf(player.getCash()));
+        bWithdraw.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                String temp = etWithdraw.getText().toString();
+                Float cash = Float.parseFloat(temp);
+
+                player.minusBank(cash);
+
+                bank.setText("Saldo: " + String.valueOf(player.getBank()) + " $");
+                money.setText("Hajs przy dupie: " + String.valueOf(player.getCash()) + " $");
+            }
+        });
+
+
 
 
     }

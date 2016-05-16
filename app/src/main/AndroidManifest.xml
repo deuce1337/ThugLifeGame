@@ -34,6 +34,7 @@
         <activity android:name=".Activities.HscoreActivity" />
         <activity android:name=".Activities.AchieveActivity" />
         <activity android:name=".Activities.StatisticActivity" />
+        <activity android:name=".Activities.DiceGameActivity"></activity>
     </application>
 
 </manifest>
