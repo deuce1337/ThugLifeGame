@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.kamel.thuglifegame.Player;
 import com.example.kamel.thuglifegame.R;
 
 import java.util.Random;
@@ -18,6 +19,7 @@ public class DiceGameActivity extends AppCompatActivity {
     private int myScore;
     private int oppScore;
     private short round;
+    private Player player;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +34,8 @@ public class DiceGameActivity extends AppCompatActivity {
 
         final Button bThrow = (Button) findViewById(R.id.bThrow);
 
+        player = new Player();
+
         myScore = 0;
         oppScore = 0;
         round = 1;
@@ -44,6 +48,7 @@ public class DiceGameActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Handler handler = new Handler();
+                player.minusCash(1000);
 
                 //KROK 1
 
@@ -66,8 +71,6 @@ public class DiceGameActivity extends AppCompatActivity {
                         myResult.setText("Twój wynik to: " + Integer.toString(myScore) + " pkt");
                     }
                 }, 3000);
-
-
 
 
                 //KROK 2
@@ -108,12 +111,16 @@ public class DiceGameActivity extends AppCompatActivity {
                                     if(myScore > oppScore)
                                     {
                                         message.setText("$$ Gratulacje wygrałeś hajs $$");
+                                        player.addCash(2000);
+                                        player.addExp(50);
                                     }else if(oppScore > myScore)
                                     {
                                         message.setText("Serio myślałeś, że wygrasz z tym starym wyjadaczem ?");
                                     }else
                                     {
                                         message.setText("Remis, 1000$ wraca na twoje konto");
+                                        player.addCash(1000);
+                                        player.addExp(25);
                                     }
                                 }
                             }, 2500);

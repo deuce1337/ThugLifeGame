@@ -35,6 +35,14 @@ public class Player {
         Cash = cash;
     }
 
+    public void addCash(double cash) {
+        Cash += cash;
+    }
+
+    public void minusCash(double cash) {
+        Cash -= cash;
+    }
+
     public int getEnergy() {
         return Energy;
     }
@@ -64,6 +72,11 @@ public class Player {
     }
 
     public void setExp(int exp) {
+        Exp = exp;
+    }
+
+    public void addExp(int exp)
+    {
         Exp = exp;
     }
 
