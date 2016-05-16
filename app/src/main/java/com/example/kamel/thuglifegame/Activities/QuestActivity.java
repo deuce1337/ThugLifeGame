@@ -1,6 +1,7 @@
 package com.example.kamel.thuglifegame.Activities;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
@@ -34,7 +35,29 @@ public class QuestActivity extends AppCompatActivity {
         questList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String activity = mAdapter.getItem(position).getActivity();
 
+                Intent quest = new Intent();
+                quest.setClassName("com.example.kamel.thuglifegame", activity);
+
+                QuestActivity.this.startActivity(quest);
+
+
+
+                Log.i("staruszka", activity);
+
+                /*Class<?> c = null;
+                if(activity != null) {
+                    try {
+                        c = Class.forName(activity );
+                    } catch (ClassNotFoundException e) {
+                        // TODO Auto-generated catch blockx
+                        e.printStackTrace();
+                    }
+                }
+
+                Intent quest = new Intent(QuestActivity.this, c);
+                QuestActivity.this.startActivity(quest);*/
             }
         });
 

@@ -8,6 +8,16 @@ public class QuestList {
     private String name;
     private String about;
     private String imgUrl;
+    private String activity;
+
+    public String getActivity() {
+        return activity;
+    }
+
+    public void setActivity(String activity) {
+        this.activity = activity;
+    }
+
 
     public String getName() {
         return name;

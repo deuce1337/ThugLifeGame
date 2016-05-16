@@ -5,8 +5,6 @@ package com.example.kamel.thuglifegame.LoadXML.Quests;
  */
 import android.content.Context;
 
-import com.example.kamel.thuglifegame.LoadXML.Quests.QuestList;
-
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserFactory;
 
@@ -22,6 +20,7 @@ public class QuestXmlPullParser {
     static final String KEY_NAME = "name";
     static final String KEY_ABOUT = "about";
     static final String KEY_IMAGE_URL = "image";
+    static final String KEY_ACTIVITY = "activity";
 
     public static List<QuestList> getQuestListsFromFile(Context ctx) {
 
@@ -83,6 +82,9 @@ public class QuestXmlPullParser {
                         } else if (tagname.equalsIgnoreCase(KEY_IMAGE_URL)) {
                             // if </image> use setImgUrl() on curSite
                             curQuestList.setImgUrl(curText);
+                        } else if (tagname.equalsIgnoreCase(KEY_ACTIVITY)) {
+                            // if </activity> use setActivity() on curSite
+                            curQuestList.setActivity(curText);
                         }
                         break;
 

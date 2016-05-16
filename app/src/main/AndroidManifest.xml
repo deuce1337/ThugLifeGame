@@ -34,7 +34,10 @@
         <activity android:name=".Activities.HscoreActivity" />
         <activity android:name=".Activities.AchieveActivity" />
         <activity android:name=".Activities.StatisticActivity" />
-        <activity android:name=".Activities.DiceGameActivity"></activity>
+        <activity android:name=".Activities.DiceGameActivity" />
+        <activity android:name=".Activities.GrandmaActivity" />
+        <activity android:name=".Activities.TaxiActivity" />
+        <activity android:name=".Activities.LiquorActivity"></activity>
     </application>
 
 </manifest>
