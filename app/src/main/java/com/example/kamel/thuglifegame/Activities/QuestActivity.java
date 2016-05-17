@@ -42,22 +42,6 @@ public class QuestActivity extends AppCompatActivity {
 
                 QuestActivity.this.startActivity(quest);
 
-
-
-                Log.i("staruszka", activity);
-
-                /*Class<?> c = null;
-                if(activity != null) {
-                    try {
-                        c = Class.forName(activity );
-                    } catch (ClassNotFoundException e) {
-                        // TODO Auto-generated catch blockx
-                        e.printStackTrace();
-                    }
-                }
-
-                Intent quest = new Intent(QuestActivity.this, c);
-                QuestActivity.this.startActivity(quest);*/
             }
         });
 

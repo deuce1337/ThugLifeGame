@@ -21,6 +21,7 @@ public class ShopXmlPullParser {
     static final String KEY_ABOUT = "about";
     static final String KEY_IMAGE_URL = "image";
     static final String KEY_PRICE = "price";
+    static final String KEY_ACTIVITY = "activity";
 
 
     public static List<ShopList> getShopListsFromFile(Context ctx) {
@@ -86,6 +87,9 @@ public class ShopXmlPullParser {
                         } else if (tagname.equalsIgnoreCase(KEY_PRICE)) {
                             // if </price> use setPrice() on curSite
                             curShopList.setPrice(curText);
+                        } else if (tagname.equalsIgnoreCase(KEY_ACTIVITY)) {
+                            // if </activity> use setActivity() on curSite
+                            curShopList.setActivity(curText);
                         }
                         break;
 
