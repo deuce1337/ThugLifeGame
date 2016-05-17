@@ -18,8 +18,8 @@
         android:layout_above="@+id/etPassword"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/etPassword"
-        android:layout_alignEnd="@+id/etPassword" />
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -29,19 +29,23 @@
         android:id="@+id/etPassword"
         android:hint="@string/password"
         android:layout_above="@+id/bLogin"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="10dp"
+        android:layout_alignRight="@+id/etUsername"
+        android:layout_alignEnd="@+id/etUsername" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/login"
         android:id="@+id/bLogin"
+        android:layout_marginBottom="10dp"
         android:layout_above="@+id/tvRegisterHere"
-        android:layout_alignRight="@+id/tvRegisterHere"
-        android:layout_alignEnd="@+id/tvRegisterHere" />
+        android:layout_alignRight="@+id/etPassword"
+        android:layout_alignEnd="@+id/etPassword"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -49,17 +53,16 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="@string/rejestracja"
         android:id="@+id/tvRegisterHere"
+        android:layout_marginBottom="170dp"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="149dp" />
+        android:layout_centerHorizontal="true" />
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="240dp"
+        android:layout_height="180dp"
         android:id="@+id/ivLogo"
-        android:src="@drawable/logo"
+        android:src="@mipmap/logo"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_above="@+id/etUsername" />
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>
