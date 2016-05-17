@@ -37,7 +37,19 @@
         <activity android:name=".Activities.DiceGameActivity" />
         <activity android:name=".Activities.GrandmaActivity" />
         <activity android:name=".Activities.TaxiActivity" />
-        <activity android:name=".Activities.LiquorActivity"></activity>
+        <activity android:name=".Activities.LiquorActivity" />
+        <activity android:name=".Activities.BottleActivity" />
+        <activity android:name=".Activities.KnifeActivity" />
+        <activity android:name=".Activities.PistolActivity" />
+        <activity android:name=".Activities.AK47Activity" />
+        <activity android:name=".Activities.SniperActivity" />
+        <activity android:name=".Activities.MinigunActivity" />
+        <activity android:name=".Activities.MomActivity" />
+        <activity android:name=".Activities.MarketActivity" />
+        <activity android:name=".Activities.CarActivity" />
+        <activity android:name=".Activities.ParkActivity" />
+        <activity android:name=".Activities.GarageActivity" />
+        <activity android:name=".Activities.BankHeistActivity"></activity>
     </application>
 
 </manifest>

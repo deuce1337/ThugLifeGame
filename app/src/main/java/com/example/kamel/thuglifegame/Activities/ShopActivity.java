@@ -1,12 +1,15 @@
 package com.example.kamel.thuglifegame.Activities;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.example.kamel.thuglifegame.LoadXML.Downloader;
@@ -27,6 +30,19 @@ public class ShopActivity extends AppCompatActivity {
         setContentView(R.layout.activity_shop);
 
         shopList = (ListView) findViewById(R.id.lvGuns);
+
+        shopList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String activity = sAdapter.getItem(position).getActivity();
+
+                Intent quest = new Intent();
+                quest.setClassName("com.example.kamel.thuglifegame", activity);
+
+                ShopActivity.this.startActivity(quest);
+                
+            }
+        });
 
         /*
 		 * If network is available download the xml from the Internet.

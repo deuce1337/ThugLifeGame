@@ -44,4 +44,12 @@
     <string name="respect">Respect:</string>
     <string name="throww">Rzut !</string>
     <string name="diceInfo">Zagraj z Wiesławem w kości. Masz 3 rzuty. Wpisowe to 1000$, jesli wygrasz zgarniasz 2x wiecej jesli przgrasz to i tak czeka Cię nagroda.... darmowy wpierdol !</string>
+    <string name="success50">Szanasa powodzenia: 50%</string>
+    <string name="success0">Szanasa powodzenia: 0%</string>
+    <string name="level1">Wymagany Poziom: 1</string>
+    <string name="level30">Wymagany Poziom: 30</string>
+    <string name="mom">Okradnij Matke</string>
+    <string name="dothis">Rozpocznij robotę !</string>
+    <string name="profit">Możliwy zysk: 50$</string>
+    <string name="profit100">Możliwy zysk: 10000$</string>
 </resources>

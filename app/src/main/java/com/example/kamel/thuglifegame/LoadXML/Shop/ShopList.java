@@ -9,6 +9,15 @@ public class ShopList {
     private String about;
     private String imgUrl;
     private String price;
+    private String activity;
+
+    public String getActivity() {
+        return activity;
+    }
+
+    public void setActivity(String activity) {
+        this.activity = activity;
+    }
 
     public String getName() {
         return name;

@@ -37,7 +37,7 @@ public class GameActivity extends AppCompatActivity {
         bStatistic.setBackgroundColor(Color.TRANSPARENT);
 
         Intent intent = getIntent();
-        String username = intent.getStringExtra("username");
+        final String username = intent.getStringExtra("username");
 
         Username.setText(username);
 
@@ -45,6 +45,8 @@ public class GameActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent statIntent = new Intent(GameActivity.this, StatisticActivity.class);
+                statIntent.putExtra("username", username);
+
                 GameActivity.this.startActivity(statIntent);
             }
         });
