@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -11,6 +12,10 @@ import android.widget.TextView;
 
 import com.example.kamel.thuglifegame.Player;
 import com.example.kamel.thuglifegame.R;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -22,16 +27,20 @@ import java.net.URL;
 
 public class BankActivity extends AppCompatActivity {
 
-    private Player player;
+    private Player player = new Player();
     String JSON_STRING;
+    JSONObject jsonObject;
+    JSONArray jsonArray;
+
+    TextView money,bank;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bank);
 
-        final TextView bank = (TextView) findViewById(R.id.tvTotal);
-        final TextView money = (TextView) findViewById(R.id.tvCash);
+        bank = (TextView) findViewById(R.id.tvTotal);
+        money = (TextView) findViewById(R.id.tvCash);
 
         final Button bDeposit = (Button) findViewById(R.id.bDeposit);
         final Button bWithdraw = (Button) findViewById(R.id.bWithdraw);
@@ -39,60 +48,7 @@ public class BankActivity extends AppCompatActivity {
         final EditText etDeposit = (EditText) findViewById(R.id.etDeposit);
         final EditText etWithdraw = (EditText) findViewById(R.id.etWithdraw);
 
-        final String sBank = bank.getText().toString();
-        final String sMoney = money.getText().toString();
-
         new BackgroundTask().execute();
-
-       /* Response.Listener<String> responseListener = new Response.Listener<String>(){
-            @Override
-            public void onResponse(String response)
-            {
-                try
-                {
-                    JSONObject jsonResponse = new JSONObject(response);
-                    boolean success = jsonResponse.getBoolean("success");
-
-                    if(success)
-                    {
-                        String cash = jsonResponse.getString("cash");
-                        String bankBal = jsonResponse.getString("bank");
-
-
-                        Log.i("kasa: ", cash);
-                        Log.i("bank: ", bankBal);
-
-                        money.setText("Hajs przy dupie: " + String.valueOf(cash) + " $");
-                        bank.setText("Saldo: " + String.valueOf(bankBal) + " $");
-
-                    }
-                    else
-                    {
-                        AlertDialog.Builder builder = new AlertDialog.Builder(BankActivity.this);
-                        builder.setMessage("błąd")
-                                .setNegativeButton("Ponów próbę !", null)
-                                .create()
-                                .show();
-                    }
-                }
-                catch (JSONException e)
-                {
-                    e.printStackTrace();;
-                }
-            }
-        };
-
-        StatisticRequest statsRequest = new StatisticRequest(sMoney, sBank, responseListener);
-        RequestQueue queue = Volley.newRequestQueue(BankActivity.this);
-        queue.add(statsRequest);*/
-
-
-        player = new Player();
-
-        player.setCash(20000.50);
-
-        money.setText("Hajs przy dupie: " + String.valueOf(player.getCash()) + " $");
-        bank.setText("Saldo: " + String.valueOf(player.getBank()) + " $");
 
 
         bDeposit.setOnClickListener(new View.OnClickListener() {
@@ -192,8 +148,42 @@ public class BankActivity extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(String result) {
-            final TextView bank = (TextView) findViewById(R.id.tvTotal);
-            bank.setText(result);
+
+            try {
+
+                bank = (TextView) findViewById(R.id.tvTotal);
+                money = (TextView) findViewById(R.id.tvCash);
+                jsonObject = new JSONObject(result);
+                jsonArray = jsonObject.getJSONArray("server_response");
+
+                int count = 0;
+
+                String cash, banks;
+
+                JSONObject JO = jsonArray.getJSONObject(count);
+
+
+                cash = JO.getString("cash");
+                banks = JO.getString("bank");
+
+                double moneys = Double.parseDouble(cash);
+                double bankBal = Double.parseDouble(banks);
+
+                Log.i("kasa: ", String.valueOf(moneys));
+                Log.i("bank: ", String.valueOf(bankBal));
+
+                player.setCash(moneys);
+                player.setBank(bankBal);
+
+                money.setText("Hajs przy dupie: " + String.valueOf(player.getCash()) + " $");
+                bank.setText("Saldo: " + String.valueOf(player.getBank()) + " $");
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
         }
     }
+
+
 }

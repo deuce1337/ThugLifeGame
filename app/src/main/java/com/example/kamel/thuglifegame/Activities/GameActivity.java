@@ -2,6 +2,7 @@ package com.example.kamel.thuglifegame.Activities;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -11,7 +12,17 @@ import android.widget.TextView;
 
 import com.example.kamel.thuglifegame.R;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+
 public class GameActivity extends AppCompatActivity {
+
+    String JSON_STRING;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,10 +47,14 @@ public class GameActivity extends AppCompatActivity {
         bStatistic.setVisibility(View.VISIBLE);
         bStatistic.setBackgroundColor(Color.TRANSPARENT);
 
+        //Pobieranie username z bazy danych i wyświetlanie go za pomocą TextView
         Intent intent = getIntent();
         final String username = intent.getStringExtra("username");
 
         Username.setText(username);
+
+        //Pobieranie parametrów statystyk z bazy danych
+        new BackgroundTask().execute();
 
         bStatistic.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,7 +66,7 @@ public class GameActivity extends AppCompatActivity {
             }
         });
 
-
+        //Button BANK
         ibBank.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -59,7 +74,7 @@ public class GameActivity extends AppCompatActivity {
                 GameActivity.this.startActivity(bankIntent);
             }
         });
-
+        //Button Dziwki
         ibWhores.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -67,7 +82,7 @@ public class GameActivity extends AppCompatActivity {
                 GameActivity.this.startActivity(whoresIntent);
             }
         });
-
+        //Button Sklep
         ibShop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -75,7 +90,7 @@ public class GameActivity extends AppCompatActivity {
                 GameActivity.this.startActivity(shopIntent);
             }
         });
-
+        //Button Dealer
         ibDealer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -83,7 +98,7 @@ public class GameActivity extends AppCompatActivity {
                 GameActivity.this.startActivity(dealerIntent);
             }
         });
-
+        //Button Szpital
         ibHospital.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -135,4 +150,56 @@ public class GameActivity extends AppCompatActivity {
             }
         });
     }
+
+    //Klasa pobierająca z bazy danych wszystkie informacje i prezentująca to w odpowiednich TextView
+    class BackgroundTask extends AsyncTask<Void,Void,String>
+    {
+        String Url;
+
+        @Override
+        protected void onPreExecute() {
+            Url = "http://thuglifegame.xyz/Stats2.php";
+        }
+
+        @Override
+        protected String doInBackground(Void... params) {
+            try {
+                URL url = new URL(Url);
+                HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
+                InputStream inputStream = httpURLConnection.getInputStream();
+                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
+                StringBuilder stringBuilder = new StringBuilder();
+
+                while ((JSON_STRING = bufferedReader.readLine())!=null)
+                {
+                    stringBuilder.append(JSON_STRING+"\n");
+                }
+
+                bufferedReader.close();
+                inputStream.close();
+                httpURLConnection.disconnect();
+
+                return stringBuilder.toString().trim();
+
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            return null;
+        }
+
+        @Override
+        protected void onProgressUpdate(Void... values) {
+            super.onProgressUpdate(values);
+        }
+
+        @Override
+        protected void onPostExecute(String result) {
+            final TextView cash = (TextView) findViewById(R.id.tvCash);
+            cash.setText(result);
+        }
+    }
+
 }
