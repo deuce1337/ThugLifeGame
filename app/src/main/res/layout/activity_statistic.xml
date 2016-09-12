@@ -45,7 +45,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="Doświadczenie:"
-        android:id="@+id/tvExpirence"
+        android:id="@+id/tvExperience"
         android:layout_below="@+id/tvLevel"
         android:layout_alignLeft="@+id/tvLevel"
         android:layout_alignStart="@+id/tvLevel" />
@@ -55,20 +55,20 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="Siła:"
-        android:id="@+id/tvStrong"
-        android:layout_below="@+id/tvExpirence"
-        android:layout_alignLeft="@+id/tvExpirence"
-        android:layout_alignStart="@+id/tvExpirence" />
+        android:id="@+id/tvStrength"
+        android:layout_below="@+id/tvExperience"
+        android:layout_alignLeft="@+id/tvExperience"
+        android:layout_alignStart="@+id/tvExperience" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="@string/inteligence"
-        android:id="@+id/tvInteligence"
-        android:layout_below="@+id/tvStrong"
-        android:layout_alignLeft="@+id/tvStrong"
-        android:layout_alignStart="@+id/tvStrong" />
+        android:id="@+id/tvIntelligence"
+        android:layout_below="@+id/tvStrength"
+        android:layout_alignLeft="@+id/tvStrength"
+        android:layout_alignStart="@+id/tvStrength" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -76,9 +76,9 @@
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="@string/agility"
         android:id="@+id/tvAgility"
-        android:layout_below="@+id/tvInteligence"
-        android:layout_alignLeft="@+id/tvInteligence"
-        android:layout_alignStart="@+id/tvInteligence" />
+        android:layout_below="@+id/tvIntelligence"
+        android:layout_alignLeft="@+id/tvIntelligence"
+        android:layout_alignStart="@+id/tvIntelligence" />
 
     <TextView
         android:layout_width="wrap_content"

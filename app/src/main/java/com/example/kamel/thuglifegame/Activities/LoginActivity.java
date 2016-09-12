@@ -9,14 +9,19 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
+import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.kamel.thuglifegame.LoginRequest;
 import com.example.kamel.thuglifegame.R;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -70,8 +75,8 @@ public class LoginActivity extends AppCompatActivity {
                             else
                             {
                                 AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
-                                builder.setMessage("Logowanie nieudane!")
-                                        .setNegativeButton("Ponów próbę !", null)
+                                builder.setMessage("Logowanie nieudane")
+                                        .setNegativeButton("Ponów próbę", null)
                                         .create()
                                         .show();
                             }
@@ -91,4 +96,22 @@ public class LoginActivity extends AppCompatActivity {
         });
 
     }
+//
+//    public class LoginRequest extends StringRequest {
+//
+//        private static final String API_REQUEST_URL = "http://thuglifegame.xyz/api.php";
+//        private Map<String, String> params;
+//
+//        public LoginRequest(String username, String password, Response.Listener<String> listener)
+//        {
+//            super(Request.Method.GET, API_REQUEST_URL, listener, null);
+//            params = new HashMap<>();
+//            params.put("username", username);
+//        }
+//
+//        @Override
+//        public Map<String, String> getParams() {
+//            return params;
+//        }
+//    }
 }
