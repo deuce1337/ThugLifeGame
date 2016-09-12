@@ -27,12 +27,13 @@ import java.net.URL;
 
 public class BankActivity extends AppCompatActivity {
 
-    private Player player = new Player();
+
     String JSON_STRING;
     JSONObject jsonObject;
     JSONArray jsonArray;
+    private Player player = new Player();
 
-    TextView money,bank;
+    TextView money, bank;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -169,8 +170,8 @@ public class BankActivity extends AppCompatActivity {
                 double moneys = Double.parseDouble(cash);
                 double bankBal = Double.parseDouble(banks);
 
-                Log.i("kasa: ", String.valueOf(moneys));
-                Log.i("bank: ", String.valueOf(bankBal));
+//                Log.i("kasa: ", String.valueOf(moneys));
+//                Log.i("bank: ", String.valueOf(bankBal));
 
                 player.setCash(moneys);
                 player.setBank(bankBal);
