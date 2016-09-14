@@ -2,34 +2,32 @@ package com.example.kamel.thuglifegame.Activities;
 
 import android.content.Intent;
 import android.graphics.Color;
-import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.example.kamel.thuglifegame.R;
+import com.example.kamel.thuglifegame.Player;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
-
-public class GameActivity extends AppCompatActivity {
-
-    String JSON_STRING;
+public class GameActivity extends AppCompatActivity
+{
+    Player player = new Player();
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
 
-        final TextView Username = (TextView) findViewById(R.id.tvUsername);
+        TextView user = (TextView) findViewById(R.id.tvUsername);
+        TextView cash = (TextView) findViewById(R.id.tvCash);
+        TextView energy = (TextView) findViewById(R.id.tvEnergy);
+        TextView respect = (TextView) findViewById(R.id.tvRespect);
+        TextView high = (TextView) findViewById(R.id.tvHigh);
 
         final ImageButton ibBank = (ImageButton) findViewById(R.id.ibBank);
         final ImageButton ibWhores = (ImageButton) findViewById(R.id.ibHookers);
@@ -47,18 +45,30 @@ public class GameActivity extends AppCompatActivity {
         bStatistic.setVisibility(View.VISIBLE);
         bStatistic.setBackgroundColor(Color.TRANSPARENT);
 
-        //Pobieranie username z bazy danych i wyświetlanie go za pomocą TextView
+        //Pobieranie username z bazy danych
         Intent intent = getIntent();
         final String username = intent.getStringExtra("username");
+        player.setUsername(username);
 
-        Username.setText(username);
+        player.GetJSON();
 
-        //Pobieranie parametrów statystyk z bazy danych
-        new BackgroundTask().execute();
+        user.setText(player.getUsername());
+        cash.setText("Kasa: "+ player.getCash());
+        energy.setText("Energia: "+ player.getEnergy());
+        respect.setText("Respekt: "+ player.getRespect());
+        high.setText("Bania: " + player.getHigh());
 
-        bStatistic.setOnClickListener(new View.OnClickListener() {
+        Log.i("username", player.getUsername());
+        Log.i("cash", String.valueOf(player.getCash()));
+        Log.i("energy", String.valueOf(player.getEnergy()));
+        Log.i("respect", String.valueOf(player.getRespect()));
+        Log.i("high", String.valueOf(player.getHigh()));
+
+        bStatistic.setOnClickListener(new View.OnClickListener()
+        {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v)
+            {
                 Intent statIntent = new Intent(GameActivity.this, StatisticActivity.class);
                 statIntent.putExtra("username", username);
 
@@ -150,56 +160,4 @@ public class GameActivity extends AppCompatActivity {
             }
         });
     }
-
-    //Klasa pobierająca z bazy danych wszystkie informacje i prezentująca to w odpowiednich TextView
-    class BackgroundTask extends AsyncTask<Void,Void,String>
-    {
-        String Url;
-
-        @Override
-        protected void onPreExecute() {
-            Url = "http://thuglifegame.xyz/Stats2.php";
-        }
-
-        @Override
-        protected String doInBackground(Void... params) {
-            try {
-                URL url = new URL(Url);
-                HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
-                InputStream inputStream = httpURLConnection.getInputStream();
-                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
-                StringBuilder stringBuilder = new StringBuilder();
-
-                while ((JSON_STRING = bufferedReader.readLine())!=null)
-                {
-                    stringBuilder.append(JSON_STRING+"\n");
-                }
-
-                bufferedReader.close();
-                inputStream.close();
-                httpURLConnection.disconnect();
-
-                return stringBuilder.toString().trim();
-
-            } catch (MalformedURLException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
-            return null;
-        }
-
-        @Override
-        protected void onProgressUpdate(Void... values) {
-            super.onProgressUpdate(values);
-        }
-
-        @Override
-        protected void onPostExecute(String result) {
-            final TextView cash = (TextView) findViewById(R.id.tvCash);
-            cash.setText(result);
-        }
-    }
-
 }

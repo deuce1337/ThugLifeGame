@@ -84,7 +84,7 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:text="@string/level"
-                android:id="@+id/tvLevel" />
+                android:id="@+id/tvRespect" />
 
             <TextView
                 android:layout_width="wrap_content"
