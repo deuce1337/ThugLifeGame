@@ -127,7 +127,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Akcja Udana/Nieudana"
-        android:id="@+id/textView21"
+        android:id="@+id/tvResult"
         android:layout_marginTop="39dp"
         android:layout_below="@+id/textView26"
         android:layout_centerHorizontal="true" />
@@ -136,12 +136,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Rozpocznij Akcję"
-        android:id="@+id/button"
+        android:id="@+id/bStart"
         android:layout_alignParentBottom="true"
-        android:layout_alignLeft="@+id/textView21"
-        android:layout_alignStart="@+id/textView21"
-        android:layout_alignRight="@+id/textView21"
-        android:layout_alignEnd="@+id/textView21" />
+        android:layout_alignLeft="@+id/tvResult"
+        android:layout_alignStart="@+id/tvResult"
+        android:layout_alignRight="@+id/tvResult"
+        android:layout_alignEnd="@+id/tvResult" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -266,7 +266,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Zgarnąłeś 0$"
-        android:id="@+id/textView"
-        android:layout_below="@+id/textView21"
+        android:id="@+id/tvCashGain"
+        android:layout_below="@+id/tvResult"
         android:layout_centerHorizontal="true" />
 </RelativeLayout>

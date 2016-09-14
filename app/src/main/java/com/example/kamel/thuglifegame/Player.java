@@ -12,10 +12,6 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
-import android.util.Log;
-import android.widget.Toast;
-
-
 
 public class Player
 {
@@ -64,6 +60,28 @@ public class Player
     public void minusCash(double cash)
     {
         Cash -= cash;
+    }
+
+    public double getBank()
+    {
+        return Bank;
+    }
+
+    public void setBank(double bank)
+    {
+        Bank = bank;
+    }
+
+    public void addBank (double bank)
+    {
+        Cash -= bank;
+        Bank += bank;
+    }
+
+    public void minusBank (double bank)
+    {
+        Cash += bank;
+        Bank -= bank;
     }
 
     public int getEnergy()
@@ -151,28 +169,6 @@ public class Player
         Respect = respect;
     }
 
-    public double getBank()
-    {
-        return Bank;
-    }
-
-    public void setBank(double bank)
-    {
-        Bank = bank;
-    }
-
-    public void addBank (double bank)
-    {
-        Cash -= bank;
-        Bank += bank;
-    }
-
-    public void minusBank (double bank)
-    {
-        Cash += bank;
-        Bank -= bank;
-    }
-
     public void GetJSON()
     {
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
@@ -206,6 +202,9 @@ public class Player
 
             String cashStr = JO.getString("cash");
             setCash(Integer.parseInt(cashStr));
+
+            String bankStr = JO.getString("bank");
+            setBank(Integer.parseInt(bankStr));
 
             String energyStr = JO.getString("energy");
             setEnergy(Integer.parseInt(energyStr));
