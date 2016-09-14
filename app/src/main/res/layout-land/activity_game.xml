@@ -50,7 +50,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="@string/level"
-        android:id="@+id/tvLevel"
+        android:id="@+id/tvRespect"
         android:layout_below="@+id/tvUsername"
         android:layout_alignLeft="@+id/tvUsername"
         android:layout_alignStart="@+id/tvUsername"
@@ -111,8 +111,8 @@
         android:text="@string/hospital"
         android:id="@+id/tvHospital"
         android:layout_below="@+id/ibHospital"
-        android:layout_alignRight="@+id/tvLevel"
-        android:layout_alignEnd="@+id/tvLevel" />
+        android:layout_alignRight="@+id/tvRespect"
+        android:layout_alignEnd="@+id/tvRespect" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -140,8 +140,8 @@
         android:text="@string/casino"
         android:id="@+id/tvCasino"
         android:layout_below="@+id/ibCasino"
-        android:layout_alignRight="@+id/tvLevel"
-        android:layout_alignEnd="@+id/tvLevel" />
+        android:layout_alignRight="@+id/tvRespect"
+        android:layout_alignEnd="@+id/tvRespect" />
 
     <TextView
         android:layout_width="wrap_content"

@@ -35,7 +35,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="@string/level"
-        android:id="@+id/tvLevel"
+        android:id="@+id/tvRespect"
         android:layout_below="@+id/tvUsername"
         android:layout_alignLeft="@+id/tvUsername"
         android:layout_alignStart="@+id/tvUsername" />
@@ -46,9 +46,9 @@
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="Doświadczenie:"
         android:id="@+id/tvExperience"
-        android:layout_below="@+id/tvLevel"
-        android:layout_alignLeft="@+id/tvLevel"
-        android:layout_alignStart="@+id/tvLevel" />
+        android:layout_below="@+id/tvRespect"
+        android:layout_alignLeft="@+id/tvRespect"
+        android:layout_alignStart="@+id/tvRespect" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -80,13 +80,13 @@
         android:layout_alignLeft="@+id/tvIntelligence"
         android:layout_alignStart="@+id/tvIntelligence" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="@string/respect"
-        android:id="@+id/tvRespect"
-        android:layout_below="@+id/tvAgility"
-        android:layout_alignLeft="@+id/tvAgility"
-        android:layout_alignStart="@+id/tvAgility" />
+    <!--<TextView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:textAppearance="?android:attr/textAppearanceSmall"-->
+        <!--android:text="@string/respect"-->
+        <!--android:id="@+id/tvRespect"-->
+        <!--android:layout_below="@+id/tvAgility"-->
+        <!--android:layout_alignLeft="@+id/tvAgility"-->
+        <!--android:layout_alignStart="@+id/tvAgility" />-->
 </RelativeLayout>
