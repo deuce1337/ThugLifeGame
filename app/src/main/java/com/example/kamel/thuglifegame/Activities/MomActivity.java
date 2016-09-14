@@ -1,117 +1,100 @@
 package com.example.kamel.thuglifegame.Activities;
 
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.kamel.thuglifegame.MissionControl;
+import com.example.kamel.thuglifegame.Player;
 import com.example.kamel.thuglifegame.R;
 
-import org.json.JSONException;
-import org.json.JSONObject;
+public class MomActivity extends AppCompatActivity
+{
+    private int MSVal;
+    private int cashGainVal;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
-
-public class MomActivity extends AppCompatActivity {
-
-//    String JSON_STRING;
-    TextView res;
+    Player player = new Player();
+    MissionControl mission = new MissionControl();
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mom);
 
-        res = (TextView) findViewById(R.id.tvRespect);
-    }
-//    class BackgroundTask extends AsyncTask<Void,Void,String>
-//    {
-//        Intent intent = getIntent();
-//        final String username = intent.getStringExtra("username");
-//        String Url;
-//
-//        @Override
-//        protected void onPreExecute()
-//        {
-//            Url = "http://thuglifegame.xyz/api.php?username=" + username;
-//        }
-//
-//        @Override
-//        protected String doInBackground(Void... params)
-//        {
-//            try
-//            {
-//                URL url = new URL(Url);
-//                HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
-//                InputStream inputStream = httpURLConnection.getInputStream();
-//                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
-//                StringBuilder stringBuilder = new StringBuilder();
-//
-//                while ((JSON_STRING = bufferedReader.readLine()) != null)
-//                {
-//                    stringBuilder.append(JSON_STRING + "\n");
-//                }
-//
-//                bufferedReader.close();
-//                inputStream.close();
-//                httpURLConnection.disconnect();
-//
-//                return stringBuilder.toString().trim();
-//
-//            }
-//
-//            catch (MalformedURLException e)
-//            {
-//                e.printStackTrace();
-//            }
-//
-//            catch (IOException e)
-//            {
-//                e.printStackTrace();
-//            }
-//
-//            return null;
-//        }
-//
-//        @Override
-//        protected void onProgressUpdate(Void... values)
-//        {
-//            super.onProgressUpdate(values);
-//        }
-//
-//        @Override
-//        protected void onPostExecute(String result)
-//        {
-//            try
-//            {
-//                JSONObject JO = new JSONObject(result);
-//
-//                String levelStr = JO.getString("bank");
-//                String expStr = JO.getString("exp");
-//                String strStr = JO.getString("strengh");
-//                String intelStr = JO.getString("inteligence");
-//                String agiStr = JO.getString("agility");
-//                String resStr = JO.getString("respect");
+        Intent intent = getIntent();
+        final String username = intent.getStringExtra("username");
+        player.setUsername(username);
 
-//                res.setText(resStr);
-//                exp.setText(expStr);
-//                str.setText(strStr);
-//                intel.setText(intelStr);
-//                agi.setText(agiStr);
-//
-//            }
-//
-//            catch (JSONException e)
-//            {
-//                e.printStackTrace();
-//            }
-//        }
-//    }
+        player.GetJSON();
+
+        TextView respVal = (TextView) findViewById(R.id.respVal);
+        TextView expVal = (TextView) findViewById(R.id.expVal);
+        TextView strVal = (TextView) findViewById(R.id.strVal);
+        TextView intVal = (TextView) findViewById(R.id.intVal);
+        TextView agiVal = (TextView) findViewById(R.id.agiVal);
+        final TextView result = (TextView) findViewById(R.id.tvResult);
+        final TextView cashGain = (TextView) findViewById(R.id.tvCashGain);
+
+        final Button bStart = (Button) findViewById(R.id.bStart);
+
+        assert respVal != null;
+        respVal.setText(String.valueOf(player.getRespect()));
+        assert expVal != null;
+        expVal.setText(String.valueOf(player.getExp()));
+        assert strVal != null;
+        strVal.setText(String.valueOf(player.getStrength()));
+        assert intVal != null;
+        intVal.setText(String.valueOf(player.getInteligence()));
+        assert agiVal != null;
+        agiVal.setText(String.valueOf(player.getAgility()));
+
+        MSVal = player.getAgility() + player.getInteligence();
+        mission.setCashRewardGrade(1);
+        mission.difficultyCalc();
+
+        assert bStart != null;
+        bStart.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                mission.setEnergy(player.getEnergy());
+                mission.setRespect(player.getRespect());
+                mission.setExp(player.getExp());
+                mission.setStrength(player.getStrength());
+                mission.setIntelligence(player.getInteligence());
+                mission.setAgility(player.getAgility());
+                mission.setMSVal(MSVal);
+
+                mission.successCalc();
+                mission.cashCalc();
+                cashGainVal = mission.cashCalc();
+
+                Log.i("result", String.valueOf(mission.successCalc()));
+                Log.i("cash", String.valueOf(mission.cashCalc()));
+                Log.i("diff", String.valueOf(mission.difficultyCalc()));
+
+                if(mission.successCalc() == true)
+                {
+                    assert result != null;
+                    result.setText("Akcja Udana!");
+                    assert cashGain != null;
+                    cashGain.setText("Zgarniasz " + cashGainVal + "$");
+                }
+
+                if(mission.successCalc() == false)
+                {
+                    assert result != null;
+                    result.setText("Akcja Nieudana!");
+                    assert cashGain != null;
+                    cashGain.setText("Na porażkach nie zarobisz!");
+                }
+            }
+        });
+    }
 }

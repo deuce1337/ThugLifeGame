@@ -29,6 +29,8 @@ public class QuestActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quest);
 
+        Intent intent = getIntent();
+        final String username = intent.getStringExtra("username");
 
         questList = (ListView) findViewById(R.id.lvQuest);
 
@@ -39,16 +41,12 @@ public class QuestActivity extends AppCompatActivity {
 
                 Intent quest = new Intent();
                 quest.setClassName("com.example.kamel.thuglifegame", activity);
+                quest.putExtra("username", username);
 
                 QuestActivity.this.startActivity(quest);
-
             }
         });
 
-      /*
-		 * If network is available download the xml from the Internet.
-		 * If not then try to use the local file from last time.
-		 */
         if(isNetworkAvailable()){
             Log.i("questList", "starting download Task");
             SitesDownloadTask download = new SitesDownloadTask();
@@ -61,7 +59,6 @@ public class QuestActivity extends AppCompatActivity {
 
     }
 
-    //Helper method to determine if Internet connection is available.
     private boolean isNetworkAvailable() {
         ConnectivityManager connectivityManager
                 = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -69,15 +66,11 @@ public class QuestActivity extends AppCompatActivity {
         return activeNetworkInfo != null && activeNetworkInfo.isConnected();
     }
 
-    /*
-	 * AsyncTask that will download the xml file for us and store it locally.
-	 * After the download is done we'll parse the local file.
-	 */
     private class SitesDownloadTask extends AsyncTask<Void, Void, Void> {
 
         @Override
         protected Void doInBackground(Void... arg0) {
-            //Download the file
+
             try {
                 Downloader.DownloadFromUrl("http://thuglifegame.xyz/quests/questList.xml", openFileOutput("questList.xml", Context.MODE_PRIVATE));
             } catch (FileNotFoundException e) {
@@ -89,11 +82,10 @@ public class QuestActivity extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(Void result){
-            //setup our Adapter and set it to the ListView.
+
             mAdapter = new QuestAdapter(QuestActivity.this, -1, QuestXmlPullParser.getQuestListsFromFile(QuestActivity.this));
             questList.setAdapter(mAdapter);
             Log.i("questList", "adapter size = "+ mAdapter.getCount());
         }
     }
-
 }

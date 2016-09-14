@@ -81,6 +81,7 @@ public class GameActivity extends AppCompatActivity
             @Override
             public void onClick(View v) {
                 Intent bankIntent = new Intent(GameActivity.this, BankActivity.class);
+                bankIntent.putExtra("username", username);
                 GameActivity.this.startActivity(bankIntent);
             }
         });
@@ -116,11 +117,12 @@ public class GameActivity extends AppCompatActivity
                 GameActivity.this.startActivity(hospitalIntent);
             }
         });
-
+        //Button Misje
         ibQuests.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent questsIntent = new Intent(GameActivity.this, QuestActivity.class);
+                questsIntent.putExtra("username", username);
                 GameActivity.this.startActivity(questsIntent);
             }
         });
