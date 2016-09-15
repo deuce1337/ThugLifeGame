@@ -68,31 +68,18 @@ public class LiquorActivity extends AppCompatActivity
                 mission.setStrength(player.getStrength());
                 mission.setIntelligence(player.getInteligence());
                 mission.setAgility(player.getAgility());
+
                 mission.setMSVal(MSVal);
 
-                mission.successCalc();
-                mission.cashCalc();
                 cashGainVal = mission.cashCalc();
 
-                Log.i("wynik", String.valueOf(mission.successCalc()));
-                Log.i("cash", String.valueOf(mission.cashCalc()));
+                result.setText(mission.successCalc());
+
+                cashGain.setText("Zgarniasz " + cashGainVal + "$");
+
+                Log.i("result", mission.successCalc());
+                Log.i("cash", String.valueOf(cashGainVal));
                 Log.i("diff", String.valueOf(mission.difficultyCalc()));
-
-                if(mission.successCalc() == true)
-                {
-                    assert result != null;
-                    result.setText("Akcja Udana!");
-                    assert cashGain != null;
-                    cashGain.setText("Zgarniasz " + cashGainVal + "$");
-                }
-
-                if(mission.successCalc() == false)
-                {
-                    assert result != null;
-                    result.setText("Akcja Nieudana!");
-                    assert cashGain != null;
-                    cashGain.setText("Na porażkach nie zarobisz!");
-                }
             }
         });
     }

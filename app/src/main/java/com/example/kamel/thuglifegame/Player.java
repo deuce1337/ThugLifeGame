@@ -1,6 +1,7 @@
 package com.example.kamel.thuglifegame;
 
 import android.os.StrictMode;
+import android.util.Log;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -16,6 +17,7 @@ import java.net.URL;
 public class Player
 {
     private String Username;
+    private String User_id;
     private String JSON_STRING;
 
     private double Cash = 0;
@@ -31,6 +33,16 @@ public class Player
     private int Respect = 0;
 
     public StringBuilder stringBuilder=null;
+
+    public String getUser_id()
+    {
+        return User_id;
+    }
+
+    public void setUser_id(String user_id)
+    {
+        User_id = user_id;
+    }
 
     public String getUsername()
     {
@@ -69,7 +81,7 @@ public class Player
 
     public void setBank(double bank)
     {
-        Bank = bank;
+        this.Bank = bank;
     }
 
     public void addBank (double bank)
@@ -200,6 +212,10 @@ public class Player
 
             setUsername(JO.getString("username"));
 
+            String idStr = JO.getString("id_user");
+            setUser_id(String.valueOf(idStr));
+            Log.i("id= ",getUser_id());
+
             String cashStr = JO.getString("cash");
             setCash(Integer.parseInt(cashStr));
 
@@ -241,6 +257,32 @@ public class Player
         }
 
         catch (JSONException e)
+        {
+            e.printStackTrace();
+        }
+    }
+
+
+    public String _do = "set";
+
+    //    do=(set,add,sub)
+    public void upToDB(String What, String _do, int Value)
+    {
+        String Url = "http://thuglifegame.xyz/api.php?user_id="+ User_id +"&value="+ Value +"&query=" + What + "&do=" + _do;
+        Log.i("",Url);
+
+        try
+        {
+            URL urlUp = new URL(Url);
+            HttpURLConnection httpURLConnection = (HttpURLConnection) urlUp.openConnection();
+            httpURLConnection.getContent();
+            httpURLConnection.disconnect();
+        }
+        catch (MalformedURLException e)
+        {
+            e.printStackTrace();
+        }
+        catch (IOException e)
         {
             e.printStackTrace();
         }
