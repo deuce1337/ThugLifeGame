@@ -16,6 +16,8 @@ public class MissionControl
     private int cashRewardGrade;
     private int Difficulty;
 
+    public String result;
+
     public void setEnergy(int energy)
     {
         Energy = energy;
@@ -61,7 +63,7 @@ public class MissionControl
         Difficulty = difficulty;
     }
 
-    public boolean successCalc()
+    public String successCalc()
     {
         int val1 = (Respect + Exp);
         int val2 = val1 * MSVal;
@@ -83,19 +85,19 @@ public class MissionControl
 
         if(val2 < RandResult)
         {
-            return false;
+            return "Akcja Nieudana!";
         }
         if(val2 > RandResult)
         {
-            return true;
+            return "Akcja Udana!";
         }
         if(val2 == RandResult)
         {
-            return true;
+            return "Akcja Udana!";
         }
         else
         {
-            return false;
+            return "Błąd!";
         }
     }
 
@@ -139,7 +141,6 @@ public class MissionControl
         {
             RandResult2 = generator2.nextInt(2000);
         }
-
         return RandResult2;
     }
 
