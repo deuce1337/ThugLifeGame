@@ -48,11 +48,13 @@ public class BankActivity extends AppCompatActivity {
             {
 
                 String temp = etDeposit.getText().toString();
-                Float cash = Float.parseFloat(temp);
+                int cash = Integer.parseInt(temp);
 
                 if(player.getCash() > 0 && player.getCash() >= cash)
                 {
                     player.addBank(cash);
+                    player.upToDB("cash","set", String.valueOf(player.getCash()));
+                    player.upToDB("bank","set", String.valueOf(player.getBank()));
                 }
                 else
                 {
@@ -65,7 +67,6 @@ public class BankActivity extends AppCompatActivity {
 
                 bank.setText("Saldo: " + String.valueOf(player.getBank()) + " $");
                 money.setText("Hajs przy dupie: " + String.valueOf(player.getCash()) + " $");
-
             }
         });
 
@@ -75,14 +76,16 @@ public class BankActivity extends AppCompatActivity {
             @Override
             public void onClick(View v)
             {
-
                 String temp = etWithdraw.getText().toString();
-                Float cash = Float.parseFloat(temp);
+                int cash = Integer.parseInt(temp);
 
                 if(player.getBank() > 0 && player.getBank() >= cash)
                 {
                     player.minusBank(cash);
+                    player.upToDB("cash","set", String.valueOf(player.getCash()));
+                    player.upToDB("bank","set", String.valueOf(player.getBank()));
                 }
+
                 else
                 {
                     AlertDialog.Builder builder = new AlertDialog.Builder(BankActivity.this);

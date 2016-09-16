@@ -3,7 +3,6 @@ package com.example.kamel.thuglifegame.Activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -36,11 +35,14 @@ public class TaxiActivity extends AppCompatActivity
         TextView strVal = (TextView) findViewById(R.id.strVal);
         TextView intVal = (TextView) findViewById(R.id.intVal);
         TextView agiVal = (TextView) findViewById(R.id.agiVal);
+        TextView energyCost = (TextView) findViewById(R.id.tvEnergyCost);
         final TextView result = (TextView) findViewById(R.id.tvResult);
         final TextView cashGain = (TextView) findViewById(R.id.tvCashGain);
 
         final Button bStart = (Button) findViewById(R.id.bStart);
 
+        assert energyCost != null;
+        energyCost.setText("10");
         assert respVal != null;
         respVal.setText(String.valueOf(player.getRespect()));
         assert expVal != null;
@@ -70,16 +72,20 @@ public class TaxiActivity extends AppCompatActivity
                 mission.setAgility(player.getAgility());
 
                 mission.setMSVal(MSVal);
-
                 cashGainVal = mission.cashCalc();
 
-                result.setText(mission.successCalc());
-
-                cashGain.setText("Zgarniasz " + cashGainVal + "$");
-
-                Log.i("result", mission.successCalc());
-                Log.i("cash", String.valueOf(cashGainVal));
-                Log.i("diff", String.valueOf(mission.difficultyCalc()));
+                if (mission.getSuccess())
+                {
+                    result.setText(mission.successCalc());
+                    cashGain.setText("Zgarniasz " + cashGainVal + "$");
+                    player.upToDB("cash", "add", String.valueOf(cashGainVal));
+                    player.upToDB("energy", "sub", String.valueOf(10));
+                }
+                else
+                {
+                    result.setText(mission.successCalc());
+                    cashGain.setText("Nie dla psa kasa");
+                }
             }
         });
     }

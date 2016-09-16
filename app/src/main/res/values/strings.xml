@@ -17,16 +17,16 @@
     <string name="high">Bania:</string>
     <string name="highscore">Ranking</string>
     <string name="achemement">Osiągnięcia</string>
-    <string name="bankIntro">Tutaj możesz przetrzymywać swoją flote, aby jakieś społeczniaki Ci jej nie wykradły</string>
+    <string name="bankIntro">Tutaj możesz trzymać swoją flote</string>
     <string name="deposit">Wpłać:</string>
     <string name="withdraw">Wypłać:</string>
     <string name="dice">Gra w kości</string>
     <string name="rulette">Ruletka</string>
     <string name="black_jack">Black Jack</string>
-    <string name="prisonIntro">Siedzisz w pace ! Możesz poszmuglować z innymi cwelami lub spróbować uciec</string>
+    <string name="prisonIntro">Siedzisz w pace ! Możesz odsiedzieć swoje lub spróbować uciec</string>
     <string name="prisonWelcome">Upuszczasz mydło!</string>
     <string name="escape">Ucieczka</string>
-    <string name="dealerWelcome">Pssst... Młody, chcesz coś z \"pod lady\" ??</string>
+    <string name="dealerWelcome">Pssst... Młody, chcesz kupić trochę magii ??</string>
     <string name="rank">Ranking</string>
     <string name="list">Lista</string>
     <string name="buy">Kup</string>
@@ -34,7 +34,7 @@
     <string name="statistic">Statystyki</string>
     <string name="shopWelcome">Sklep z bronią</string>
     <string name="shopIntro">Elo młody, spraw sobie klamkę</string>
-    <string name="questIntro">Możesz gromadzić hajs i doświadczenie poprzez branie udziału w różnych akcjach, ale pamiętaj zawsze możesz umoczyć dupe !</string>
+    <string name="questIntro">Możesz gromadzić hajs i doświadczenie poprzez branie udziału w różnych akcjach</string>
     <string name="login">Login</string>
     <string name="password">Hasło</string>
     <string name="login1">Login</string>
@@ -43,13 +43,13 @@
     <string name="agility">Zręczność:</string>
     <string name="respect">Respect:</string>
     <string name="throww">Rzut !</string>
-    <string name="diceInfo">Zagraj z Wiesławem w kości. Masz 3 rzuty. Wpisowe to 1000$, jesli wygrasz zgarniasz 2x wiecej jesli przgrasz to i tak czeka Cię nagroda.... darmowy wpierdol !</string>
+    <string name="diceInfo">Zagraj z Wiesławem w kości. Masz 3 rzuty. Wpisowe to 1000$, jesli wygrasz zgarniasz 2x wiecej</string>
     <string name="success50">Szanasa powodzenia: 50%</string>
     <string name="success0">Szanasa powodzenia: 0%</string>
     <string name="level1">Wymagany Poziom: 1</string>
     <string name="level30">Wymagany Poziom: 30</string>
-    <string name="mom">Okradnij Matke</string>
-    <string name="dothis">Rozpocznij robotę !</string>
+    <string name="mom">Okradnij Matkę</string>
+    <string name="dothis">Rozpocznij robotę!</string>
     <string name="profit">Możliwy zysk: 50$</string>
     <string name="profit100">Możliwy zysk: 10000$</string>
 </resources>
