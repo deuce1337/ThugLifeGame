@@ -20,9 +20,10 @@ public class Player
     private String User_id;
     private String JSON_STRING;
 
-    private double Cash = 0;
-    private double Bank = 0;
+    public String _do = "set";
 
+    private int Cash = 0;
+    private int Bank = 0;
     private int Energy = 0;
 //    public int Level = 0;
     private int High = 0;
@@ -54,43 +55,43 @@ public class Player
         Username = username;
     }
 
-    public double getCash()
+    public int getCash()
     {
         return this.Cash;
     }
 
-    public void setCash(double cash)
+    public void setCash(int cash)
     {
         this.Cash = cash;
     }
 
-    public void addCash(double cash)
+    public void addCash(int cash)
     {
         Cash += cash;
     }
 
-    public void minusCash(double cash)
+    public void minusCash(int cash)
     {
         Cash -= cash;
     }
 
-    public double getBank()
+    public int getBank()
     {
         return Bank;
     }
 
-    public void setBank(double bank)
+    public void setBank(int bank)
     {
         this.Bank = bank;
     }
 
-    public void addBank (double bank)
+    public void addBank (int bank)
     {
         Cash -= bank;
         Bank += bank;
     }
 
-    public void minusBank (double bank)
+    public void minusBank (int bank)
     {
         Cash += bank;
         Bank -= bank;
@@ -262,11 +263,8 @@ public class Player
         }
     }
 
-
-    public String _do = "set";
-
     //    do=(set,add,sub)
-    public void upToDB(String What, String _do, int Value)
+    public void upToDB(String What, String _do, String Value)
     {
         String Url = "http://thuglifegame.xyz/api.php?user_id="+ User_id +"&value="+ Value +"&query=" + What + "&do=" + _do;
         Log.i("",Url);
@@ -278,10 +276,12 @@ public class Player
             httpURLConnection.getContent();
             httpURLConnection.disconnect();
         }
+
         catch (MalformedURLException e)
         {
             e.printStackTrace();
         }
+
         catch (IOException e)
         {
             e.printStackTrace();

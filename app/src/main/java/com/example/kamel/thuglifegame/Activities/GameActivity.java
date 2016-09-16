@@ -106,6 +106,7 @@ public class GameActivity extends AppCompatActivity
             @Override
             public void onClick(View v) {
                 Intent dealerIntent = new Intent(GameActivity.this, DealerActivity.class);
+                dealerIntent.putExtra("username", username);
                 GameActivity.this.startActivity(dealerIntent);
             }
         });
